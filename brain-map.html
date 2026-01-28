@@ -196,6 +196,9 @@
         .advice-funnel { border-left: 4px solid #ffaa00; }
         .advice-funnel .card-icon { color: #ffaa00; }
         .advice-funnel li::before { color: #ffaa00; }
+        .advice-investment { border-left: 4px solid #c8a060; }
+        .advice-investment .card-icon { color: #c8a060; }
+        .advice-investment li::before { color: #c8a060; }
         .advice-next { border-left: 4px solid #ff44ff; grid-column: 1 / -1; }
         .advice-next .card-icon { color: #ff44ff; }
         .advice-long { border-left: 4px solid #ffd700; grid-column: 1 / -1; }
@@ -291,12 +294,9 @@
             .date { position: static; text-align: center; transform: none; margin-top: 8px; }
             header { padding: 15px 0; }
             .container { padding: 10px; }
-
             .sns-bar { gap: 20px; flex-wrap: wrap; }
             .sns-stat { font-size: 0.75rem; }
             .sns-stat .count { font-size: 0.85rem; }
-
-            /* Mind map: stack vertically on mobile */
             .mind-map {
                 min-height: auto; display: flex; flex-direction: column;
                 align-items: stretch; gap: 15px; margin: 20px 0; padding: 0;
@@ -314,7 +314,6 @@
                 position: static; transform: none; width: 100%;
                 margin-top: 15px;
             }
-
             .node-card {
                 position: static !important; transform: none !important;
                 flex-direction: row !important; width: 100%;
@@ -338,8 +337,6 @@
             .node-summary .more { display: none; }
             .node-card-2 li::after, .node-card-4 li::after { display: none; }
             .node-card-2 li::before, .node-card-4 li::before { content: '• '; }
-
-            /* Advice */
             .advice-section { margin: 30px auto; padding: 0 10px; }
             .advice-header h2 { font-size: 1.3rem; }
             .advice-icon { font-size: 2rem; }
@@ -351,8 +348,6 @@
             .advice-next, .advice-long { grid-column: auto; }
             .step { gap: 10px; }
             .step-num { width: 28px; height: 28px; font-size: 0.85rem; }
-
-            /* Roadmap */
             .roadmap-section { margin: 30px auto; padding: 0 10px; }
             .roadmap-header h2 { font-size: 1.3rem; }
             .roadmap-header { margin-bottom: 30px; }
@@ -364,16 +359,10 @@
             .phase-number { width: 40px; height: 40px; font-size: 1.2rem; }
             .phase-title h3 { font-size: 1rem; }
             .phase-tasks li { font-size: 0.8rem; padding-left: 20px; }
-
-            /* Detail panel */
             .detail-panel { width: 100vw; padding: 20px; }
             .detail-panel h2 { font-size: 1.2rem; }
             .detail-section p, .detail-section li { font-size: 0.85rem; }
-
-            /* Legend */
             .legend { position: static; margin: 20px auto; width: fit-content; }
-
-            /* Footer */
             .advice-footer { margin-top: 20px; }
             .advice-footer p { font-size: 0.75rem; }
         }
@@ -400,7 +389,6 @@
                 <line class="connection connection-4" x1="1350" y1="780" x2="900" y2="500"/>
                 <line class="connection connection-5" x1="800" y1="80" x2="800" y2="400"/>
                 <line class="connection connection-6" x1="800" y1="600" x2="800" y2="920"/>
-                <!-- cross connections -->
                 <line class="connection connection-cross" x1="250" y1="780" x2="800" y2="920"/>
                 <line class="connection connection-cross" x1="1350" y1="180" x2="800" y2="920"/>
                 <line class="connection connection-cross" x1="1350" y1="780" x2="1350" y2="180"/>
@@ -410,13 +398,14 @@
                 <div class="central-node" onclick="showDetail('central')">
                     <span class="icon">🎯</span>
                     <span class="title">年商1億円突破</span>
-                    <span class="amount">¥100M</span>
+                    <span class="amount">1億円</span>
                 </div>
                 <div class="central-summary">
                     <ul>
                         <li>広告→LINE→ウェビナーの自動導線</li>
                         <li>法人で稼ぎ、YouTubeは理念で発信</li>
                         <li>ROAS 300〜500%の広告運用</li>
+                        <li>利益を不動産資産に変えていく</li>
                         <li>エッセンシャル思考で順番に</li>
                     </ul>
                 </div>
@@ -467,7 +456,7 @@
                 </div>
             </div>
 
-            <!-- Node 4: 広告・ファネル戦略 NEW -->
+            <!-- Node 4: 広告ファネル -->
             <div class="node-card node-card-4" onclick="showDetail('node4')">
                 <div class="node"><span class="icon">📣</span><span class="label">広告<br>ファネル</span></div>
                 <div class="node-summary">
@@ -519,7 +508,7 @@
         <div class="advice-header">
             <span class="advice-icon">💭</span>
             <h2>全体を見たアドバイス</h2>
-            <p class="advice-subtitle">10個のメモから読み取れた思考の全体像</p>
+            <p class="advice-subtitle">11個のメモから読み取れた思考の全体像</p>
         </div>
         <div class="advice-grid">
             <div class="advice-card advice-insight">
@@ -565,6 +554,16 @@
                     <li>オンライン事業と対面ローカル営業のハイブリッドが強い</li>
                 </ul>
             </div>
+            <div class="advice-card advice-investment">
+                <div class="advice-card-header"><span class="card-icon">🏨</span><h3>資産形成ビジョン：高級リゾート民泊</h3></div>
+                <ul>
+                    <li>沖縄×オーシャンビュー×高級志向のリゾート物件</li>
+                    <li>AI事業の利益を不動産資産に変えていくフェーズ</li>
+                    <li>キャッシュフロー型→資産形成型ビジネスへの展開</li>
+                    <li>過去に民泊運営経験あり — ゼロからではない</li>
+                    <li>エッセンシャル思考：AI事業が軌道に乗った後のステップ</li>
+                </ul>
+            </div>
             <div class="advice-card advice-next">
                 <div class="advice-card-header"><span class="card-icon">🚀</span><h3>エッセンシャル思考の優先順位</h3></div>
                 <div class="step-list">
@@ -596,15 +595,22 @@
                             <p>全収益柱を仕組み化。自分の時間を最小化した年商1億円の事業体を完成。</p>
                         </div>
                     </div>
+                    <div class="step">
+                        <div class="step-num">5</div>
+                        <div>
+                            <strong>利益を資産に変える：高級リゾート民泊</strong>
+                            <p>AI事業の利益を沖縄の高級リゾート不動産に投資。キャッシュフロー型から資産形成型へ。</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="advice-card advice-long">
                 <div class="advice-card-header"><span class="card-icon">📝</span><h3>Claudeからの総合アドバイス</h3></div>
-                <p>10個のメモを全て読み込んで分析した結論として、あなたの最大の武器は<strong>「17万人に支持された説明力」と「自動化を100個以上実践してきたリアルな経験値」</strong>の掛け合わせです。この2つを同時に持っている人は競合の中に一人もいません。KEITOは速報は速いが深くない。いけともは概念的だが実践が見えない。mikimikiはデザイン寄りでAI軸ではない。あなただけが「わかりやすく、かつ深い検証」ができるポジションにいます。</p>
-                <p>今回新たに加わった<strong>広告ファネルの設計</strong>は非常に重要なピースです。YouTubeは「ブランディング・信頼構築」、広告は「直接的な集客・販売」と明確に役割を分けたことで、収益構造がより堅固になりました。特にLINEのアンケートで法人と個人を自動分岐させ、それぞれに最適なウェビナーと販売導線を用意するという設計は、<strong>1つの広告投資から2つの収益源を作る</strong>効率的な構造です。ROAS 300〜500%を目標に据えたことで、広告運用に明確な基準ができました。</p>
-                <p>ただし、ここで最も重要なのは<strong>エッセンシャル思考</strong>です。YouTube検証チャンネル、広告ファネル構築、沖縄ローカル展開、LMS SaaS — やりたいことが4つあります。全部同時にやると、どれも中途半端になります。まず検証チャンネルで「この人は本物だ」という認知を作る。それがあるから広告LPに「17万人のプロ」と書ける。広告導線が回り始めたら、守成クラブで沖縄ローカルを攻める。その全てが仕組み化されたらLMS SaaSでスケールする。この順番を守ることが、1億円到達の最短ルートです。</p>
-                <p>YouTubeと有料コンテンツの棲み分けも明確です。<strong>YouTube=「判断できるようになる」、有料=「実践できるようになる」</strong>。映画レビューをいくら見ても映画は作れないのと同じで、比較検証をいくら見ても自分の業務には落とし込めない。その壁を超えるのが有料の価値です。広告ファネルを通じてLINEに入ってきた人には、ウェビナーで「判断から実践へ」の橋渡しを自動で提供できます。</p>
-                <p>最後に一つだけ。あなたが何度も「嘘はつけない」と言ったこと、それ自体が最大の差別化です。10年現場を離れているから企業事例は語れない。でも「自分で全部試した」は本当のこと。この正直さが、視聴者にも法人にも伝わります。<strong>「全部自分で試した。本当に使えるのはこれ」</strong> — このメッセージを軸に、順番を守って進めてください。</p>
+                <p>11個のメモを全て読み込んで分析した結論として、あなたの最大の武器は<strong>「17万人に支持された説明力」と「自動化を100個以上実践してきたリアルな経験値」</strong>の掛け合わせです。この2つを同時に持っている人は競合の中に一人もいません。KEITOは速報は速いが深くない。いけともは概念的だが実践が見えない。mikimikiはデザイン寄りでAI軸ではない。あなただけが「わかりやすく、かつ深い検証」ができるポジションにいます。</p>
+                <p>今回の11メモで見えてきた全体像は、<strong>「AI事業で稼ぐ→利益を資産に変える」という2段階の人生設計</strong>です。第1段階はYouTube検証チャンネル、広告ファネル（法人・個人）、沖縄ローカル営業、LMS SaaSの4つの収益柱で年商1億円を突破すること。第2段階は、その利益を沖縄の高級リゾート民泊という不動産資産に変えていくこと。この「キャッシュフロー→資産形成」の流れは、事業家として非常に堅実な設計です。</p>
+                <p>広告ファネルの設計も明確になりました。LINEのアンケートで法人と個人を自動分岐させ、それぞれに最適なウェビナーと販売導線を用意するという設計は、<strong>1つの広告投資から2つの収益源を作る</strong>効率的な構造です。ROAS 300〜500%を目標に据えたことで、広告運用に明確な基準ができました。</p>
+                <p>ここで最も重要なのは<strong>エッセンシャル思考</strong>です。やりたいことが5つあります — 検証チャンネル、広告ファネル、沖縄ローカル、LMS SaaS、そしてリゾート民泊。全部同時にやると全部中途半端になります。まず検証チャンネルで「この人は本物だ」という認知を作る。それがあるから広告LPに「17万人のプロ」と書ける。広告導線が回り始めたら守成クラブで沖縄ローカルを攻める。全てが仕組み化されたらLMS SaaSでスケール。そして安定した利益が出たら初めてリゾート民泊に投資する。<strong>この順番を守ることが、全てを実現する最短ルート</strong>です。</p>
+                <p>あなたが何度も「嘘はつけない」「焦って同時並行しない」と言ったこと — それ自体が最大の差別化であり、成功の鍵です。<strong>「全部自分で試した。本当に使えるのはこれ」</strong> — このメッセージを軸に、順番を守って進めてください。</p>
             </div>
         </div>
     </div>
@@ -613,7 +619,7 @@
     <div class="roadmap-section">
         <div class="roadmap-header">
             <h2>🗺️ ROADMAP</h2>
-            <p>年商1億円への道筋（エッセンシャル思考で順番に）</p>
+            <p>年商1億円＋資産形成への道筋（エッセンシャル思考で順番に）</p>
         </div>
         <div class="roadmap-timeline">
             <div class="roadmap-phase">
@@ -683,8 +689,9 @@
                             <li>マルチテナント化の開発完了</li>
                             <li>インフルエンサー・企業向けに営業開始</li>
                             <li>月額課金で仕組み化された収益源を確立</li>
+                            <li>全事業を仕組み化し、自分の時間を最小化</li>
                         </ul>
-                        <div class="phase-outcome"><span class="outcome-label">目標</span>自分の時間を使わないスケーラブルな収益モデル完成</div>
+                        <div class="phase-outcome"><span class="outcome-label">目標</span>年商1億円突破 — 仕組み化された事業体の完成</div>
                     </div>
                 </div>
             </div>
@@ -692,19 +699,17 @@
                 <div class="roadmap-content phase-5">
                     <div class="phase-header">
                         <div class="phase-number">5</div>
-                        <div class="phase-title"><h3>年商1億円突破</h3><span class="timing">Phase 5 - 到達</span><br><span class="phase-period">19〜24ヶ月目</span></div>
+                        <div class="phase-title"><h3>利益を資産に変える：高級リゾート民泊</h3><span class="timing">Phase 5 - 資産形成</span><br><span class="phase-period">19〜24ヶ月目</span></div>
                     </div>
                     <div class="phase-body">
-                        <p>5つの収益柱の複合で1億円を突破。</p>
+                        <p>AI事業で安定した利益を、沖縄の高級リゾート不動産に投資。キャッシュフロー型から資産形成型へ。</p>
                         <ul class="phase-tasks">
-                            <li>広告ファネル（法人）：ROAS 300〜500%で安定運用</li>
-                            <li>広告ファネル（個人）：ウェビナー→講座の自動販売</li>
-                            <li>沖縄ローカル法人：守成クラブ経由の対面営業</li>
-                            <li>LMS SaaS：テナント数の拡大</li>
-                            <li>YouTube→LINE→講座の自動導線</li>
-                            <li>全事業を仕組み化し、自分の時間を最小化</li>
+                            <li>沖縄オーシャンビューの物件リサーチ・選定</li>
+                            <li>高級志向のリゾート別荘を建設・取得</li>
+                            <li>民泊・ホテルとして運用開始</li>
+                            <li>不動産投資としてのキャッシュフロー確立</li>
                         </ul>
-                        <div class="phase-outcome"><span class="outcome-label">目標</span>仕組み化された年商1億円の事業体を完成</div>
+                        <div class="phase-outcome"><span class="outcome-label">目標</span>事業利益を不動産資産に変換、収益の多角化完成</div>
                     </div>
                 </div>
             </div>
@@ -712,7 +717,7 @@
     </div>
 
     <div class="advice-footer">
-        <p>💡 このマップは10個のObsidianメモから生成されています。<br>広告ファネル（LINE自動分岐）+ SWOT分析の空白ポジション + 沖縄AI支援No.1戦略を軸に、全戦略が統合されています。</p>
+        <p>💡 このマップは11個のObsidianメモから生成されています。<br>広告ファネル（LINE自動分岐）+ SWOT分析の空白ポジション + 沖縄AI支援No.1戦略 + 高級リゾート民泊ビジョンを軸に、全戦略が統合されています。</p>
     </div>
 
     <div class="legend">
@@ -753,6 +758,7 @@
                         <li>LMS SaaSサブスクリプション（マルチテナント型）</li>
                         <li>YouTube→LINE→講座の自動導線</li>
                     </ul></div>
+                    <div class="detail-section"><h3>その先のビジョン</h3><p>AI事業で稼いだ利益を、沖縄の高級リゾート民泊という不動産資産に変えていく。キャッシュフロー型ビジネスから資産形成型ビジネスへの展開。</p></div>
                     <div class="insight-box"><div class="label">Core Insight</div><p>広告ファネルで法人・個人を自動分岐し、それぞれに最適な販売導線を提供。法人で稼ぎ、YouTubeは理念で発信。ROAS 300〜500%の広告運用で再現性のある収益を構築する。</p></div>
                     <div class="detail-section"><h3>関連ノード</h3><div class="related-nodes">
                         <span class="related-tag" onclick="showDetail('node1')">YouTube差別化戦略</span>
@@ -812,11 +818,7 @@
                         <li><strong>実践デモ系</strong>：Power Automate × ChatGPT API、AI請求書処理の精度検証</li>
                         <li><strong>判断・選定系</strong>：用途別AI完全整理、AIに任せていい範囲とダメな範囲</li>
                     </ul></div>
-                    <div class="detail-section"><h3>無料 vs 有料の棲み分け</h3><ul>
-                        <li>YouTube = 判断できるようになる（どれを使うべきか）</li>
-                        <li>有料 = 実践できるようになる（自分で組めるようになる）</li>
-                        <li>検証動画では1タスクの結果は見せるが、業務全体を組み上げるプロセスは見せない</li>
-                    </ul></div>`
+                    <div class="detail-section"><h3>サムネイル方向性</h3><p>「How toサムネ」から「結果・問いサムネ」へ。「VLOOKUP完全解説」ではなく「Excelマスターが今さらVLOOKUP使わない理由」。</p></div>`
             },
             node4: {
                 title: '📣 広告ファネル戦略',
@@ -844,11 +846,7 @@
                         <li>個人向けコンテンツ配信 → オートウェビナー</li>
                         <li>講座販売ページへ直接誘導</li>
                         <li>単価5〜10万円</li>
-                    </ul></div>
-                    <div class="detail-section"><h3>関連ノード</h3><div class="related-nodes">
-                        <span class="related-tag" onclick="showDetail('node2')">法人向け事業</span>
-                        <span class="related-tag" onclick="showDetail('central')">年商1億円</span>
-                    </div></div>`
+                    </ul></div>`
             },
             node5: {
                 title: '💎 理念・ブランド',
@@ -890,12 +888,7 @@
                         <li>広告ファネル（法人向け・個人向け）</li>
                         <li>LMS SaaS（仕組み化）</li>
                         <li><strong>沖縄ローカル法人営業（守成クラブ経由）</strong></li>
-                    </ul></div>
-                    <div class="detail-section"><h3>関連ノード</h3><div class="related-nodes">
-                        <span class="related-tag" onclick="showDetail('node2')">法人向け事業</span>
-                        <span class="related-tag" onclick="showDetail('node4')">広告ファネル</span>
-                        <span class="related-tag" onclick="showDetail('central')">年商1億円</span>
-                    </div></div>`
+                    </ul></div>`
             }
         };
 
