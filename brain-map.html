@@ -255,6 +255,45 @@
         .phase-3 .phase-tasks li::before { color: #00aaff; }
         .phase-4 .phase-tasks li::before { color: #ff4444; }
         .phase-5 .phase-tasks li::before { color: #ff44ff; }
+        .phase-toggle-hint { margin-top: 12px; font-size: 0.75rem; color: rgba(255,255,255,0.35); text-align: center; cursor: pointer; transition: color 0.3s; }
+        .roadmap-content:hover .phase-toggle-hint { color: rgba(255,255,255,0.6); }
+        .phase-toggle-hint.open { color: rgba(255,255,255,0.5); }
+
+        .phase-progress { margin-top: 15px; }
+        .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .progress-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+        .progress-percent { font-size: 0.85rem; font-weight: bold; }
+        .phase-1 .progress-percent { color: #00d4aa; }
+        .phase-2 .progress-percent { color: #44ff88; }
+        .phase-3 .progress-percent { color: #00aaff; }
+        .phase-4 .progress-percent { color: #ff4444; }
+        .phase-5 .progress-percent { color: #ff44ff; }
+        .progress-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
+        .progress-fill { height: 100%; border-radius: 3px; transition: width 0.4s ease; }
+        .phase-1 .progress-fill { background: linear-gradient(90deg, #00d4aa, #00ffcc); }
+        .phase-2 .progress-fill { background: linear-gradient(90deg, #44ff88, #66ffaa); }
+        .phase-3 .progress-fill { background: linear-gradient(90deg, #00aaff, #44ccff); }
+        .phase-4 .progress-fill { background: linear-gradient(90deg, #ff4444, #ff6666); }
+        .phase-5 .progress-fill { background: linear-gradient(90deg, #ff44ff, #ff88ff); }
+
+        .phase-todos { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .phase-todos.open { max-height: 800px; }
+        .phase-todos-inner { padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 15px; }
+        .todo-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); cursor: pointer; transition: background 0.2s; }
+        .todo-item:last-child { border-bottom: none; }
+        .todo-item:hover { background: rgba(255,255,255,0.03); margin: 0 -10px; padding-left: 10px; padding-right: 10px; border-radius: 8px; }
+        .todo-checkbox { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; margin-top: 1px; }
+        .todo-item.checked .todo-checkbox { border-color: transparent; }
+        .phase-1 .todo-item.checked .todo-checkbox { background: #00d4aa; }
+        .phase-2 .todo-item.checked .todo-checkbox { background: #44ff88; }
+        .phase-3 .todo-item.checked .todo-checkbox { background: #00aaff; }
+        .phase-4 .todo-item.checked .todo-checkbox { background: #ff4444; }
+        .phase-5 .todo-item.checked .todo-checkbox { background: #ff44ff; }
+        .todo-checkbox::after { content: '\2713'; color: #0a0a1a; font-size: 0.75rem; font-weight: bold; opacity: 0; transition: opacity 0.2s; }
+        .todo-item.checked .todo-checkbox::after { opacity: 1; }
+        .todo-text { font-size: 0.85rem; color: rgba(255,255,255,0.75); line-height: 1.5; transition: all 0.2s; }
+        .todo-item.checked .todo-text { text-decoration: line-through; color: rgba(255,255,255,0.35); }
+
         .phase-outcome { margin-top: 15px; padding: 12px 15px; border-radius: 8px; font-size: 0.85rem; }
         .phase-1 .phase-outcome { background: rgba(0, 212, 170, 0.1); border-left: 3px solid #00d4aa; }
         .phase-2 .phase-outcome { background: rgba(68, 255, 136, 0.1); border-left: 3px solid #44ff88; }
@@ -664,6 +703,24 @@
                             <li>YouTube＝判断を教える場として確立</li>
                         </ul>
                         <div class="phase-outcome"><span class="outcome-label">目標</span>「検証系AI YouTuber」としての認知獲得</div>
+                        <div class="phase-progress" data-phase="1">
+                            <div class="progress-header"><span class="progress-label">達成率</span><span class="progress-percent">0%</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+                        </div>
+                        <div class="phase-toggle-hint" onclick="toggleTodos(1)">▼ To Doを開く</div>
+                        <div class="phase-todos" id="todos-1">
+                            <div class="phase-todos-inner">
+                                <div class="todo-item" data-phase="1" data-idx="0" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">検証チャンネルのコンセプトを文章化する</div></div>
+                                <div class="todo-item" data-phase="1" data-idx="1" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">チャンネル名・プロフィール文を検証寄りに変更</div></div>
+                                <div class="todo-item" data-phase="1" data-idx="2" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">比較検証動画テーマを3本決定</div></div>
+                                <div class="todo-item" data-phase="1" data-idx="3" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">1本目の比較検証動画を制作・投稿</div></div>
+                                <div class="todo-item" data-phase="1" data-idx="4" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">2本目の比較検証動画を制作・投稿</div></div>
+                                <div class="todo-item" data-phase="1" data-idx="5" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">3本目の比較検証動画を制作・投稿</div></div>
+                                <div class="todo-item" data-phase="1" data-idx="6" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">サムネイルを「問い型」「結果型」にリニューアル</div></div>
+                                <div class="todo-item" data-phase="1" data-idx="7" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">コンテンツ自動展開ツールを設定・稼働開始</div></div>
+                                <div class="todo-item" data-phase="1" data-idx="8" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">視聴者の反応を分析し方向性を確認</div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -683,6 +740,25 @@
                             <li>法人向け個別相談（Zoom）→成約の流れを確立</li>
                         </ul>
                         <div class="phase-outcome"><span class="outcome-label">目標</span>広告導線の自動化完成、法人契約で安定収益</div>
+                        <div class="phase-progress" data-phase="2">
+                            <div class="progress-header"><span class="progress-label">達成率</span><span class="progress-percent">0%</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+                        </div>
+                        <div class="phase-toggle-hint" onclick="toggleTodos(2)">▼ To Doを開く</div>
+                        <div class="phase-todos" id="todos-2">
+                            <div class="phase-todos-inner">
+                                <div class="todo-item" data-phase="2" data-idx="0" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">法人向けLP（「17万人のプロが教えるAI研修」）を作成</div></div>
+                                <div class="todo-item" data-phase="2" data-idx="1" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">個人向けLPを作成</div></div>
+                                <div class="todo-item" data-phase="2" data-idx="2" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">LINE公式アカウントの設定・アンケート分岐を構築</div></div>
+                                <div class="todo-item" data-phase="2" data-idx="3" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">法人向けオートウェビナーを制作</div></div>
+                                <div class="todo-item" data-phase="2" data-idx="4" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">個人向けオートウェビナーを制作</div></div>
+                                <div class="todo-item" data-phase="2" data-idx="5" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">Facebook/Instagram広告のクリエイティブを作成</div></div>
+                                <div class="todo-item" data-phase="2" data-idx="6" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">広告出稿を開始（少額テスト）</div></div>
+                                <div class="todo-item" data-phase="2" data-idx="7" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">法人向け個別相談（Zoom）の流れを整備</div></div>
+                                <div class="todo-item" data-phase="2" data-idx="8" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">ROAS計測・改善サイクルを回す</div></div>
+                                <div class="todo-item" data-phase="2" data-idx="9" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">法人契約1件目を成約する</div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -701,6 +777,22 @@
                             <li>オンライン事業×対面ローカル営業のハイブリッド</li>
                         </ul>
                         <div class="phase-outcome"><span class="outcome-label">目標</span>沖縄AI支援市場のナンバーワンシェア獲得</div>
+                        <div class="phase-progress" data-phase="3">
+                            <div class="progress-header"><span class="progress-label">達成率</span><span class="progress-percent">0%</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+                        </div>
+                        <div class="phase-toggle-hint" onclick="toggleTodos(3)">▼ To Doを開く</div>
+                        <div class="phase-todos" id="todos-3">
+                            <div class="phase-todos-inner">
+                                <div class="todo-item" data-phase="3" data-idx="0" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">守成クラブで月1回の参加を継続する</div></div>
+                                <div class="todo-item" data-phase="3" data-idx="1" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">経営者50人以上と名刺交換・関係構築</div></div>
+                                <div class="todo-item" data-phase="3" data-idx="2" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">AI研修サービスの提案資料を作成</div></div>
+                                <div class="todo-item" data-phase="3" data-idx="3" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">沖縄の経営者向けにAI体験セミナーを開催</div></div>
+                                <div class="todo-item" data-phase="3" data-idx="4" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">対面AI研修の初回契約を獲得</div></div>
+                                <div class="todo-item" data-phase="3" data-idx="5" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">「沖縄 AI研修」で検索1位を目指すコンテンツ整備</div></div>
+                                <div class="todo-item" data-phase="3" data-idx="6" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">リピート・紹介の仕組みを作る</div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -719,6 +811,23 @@
                             <li>全事業を仕組み化し、自分の時間を最小化</li>
                         </ul>
                         <div class="phase-outcome"><span class="outcome-label">目標</span>年商1億円突破 — 仕組み化された事業体の完成</div>
+                        <div class="phase-progress" data-phase="4">
+                            <div class="progress-header"><span class="progress-label">達成率</span><span class="progress-percent">0%</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+                        </div>
+                        <div class="phase-toggle-hint" onclick="toggleTodos(4)">▼ To Doを開く</div>
+                        <div class="phase-todos" id="todos-4">
+                            <div class="phase-todos-inner">
+                                <div class="todo-item" data-phase="4" data-idx="0" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">LMSのマルチテナント設計を完了</div></div>
+                                <div class="todo-item" data-phase="4" data-idx="1" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">マルチテナント化の開発・実装</div></div>
+                                <div class="todo-item" data-phase="4" data-idx="2" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">テスト環境でのテナント分離テスト</div></div>
+                                <div class="todo-item" data-phase="4" data-idx="3" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">料金プラン・サブスク体系を決定</div></div>
+                                <div class="todo-item" data-phase="4" data-idx="4" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">LMS SaaSの営業用LP・資料を作成</div></div>
+                                <div class="todo-item" data-phase="4" data-idx="5" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">インフルエンサー・企業への営業開始</div></div>
+                                <div class="todo-item" data-phase="4" data-idx="6" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">SaaSの初テナント契約を獲得</div></div>
+                                <div class="todo-item" data-phase="4" data-idx="7" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">運用サポート体制を仕組み化</div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -737,6 +846,23 @@
                             <li>不動産投資としてのキャッシュフロー確立</li>
                         </ul>
                         <div class="phase-outcome"><span class="outcome-label">目標</span>事業利益の資産化 — 二段構えの人生設計の実現</div>
+                        <div class="phase-progress" data-phase="5">
+                            <div class="progress-header"><span class="progress-label">達成率</span><span class="progress-percent">0%</span></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+                        </div>
+                        <div class="phase-toggle-hint" onclick="toggleTodos(5)">▼ To Doを開く</div>
+                        <div class="phase-todos" id="todos-5">
+                            <div class="phase-todos-inner">
+                                <div class="todo-item" data-phase="5" data-idx="0" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">AI事業の年間利益が安定したことを確認</div></div>
+                                <div class="todo-item" data-phase="5" data-idx="1" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">沖縄オーシャンビューのエリアを調査・選定</div></div>
+                                <div class="todo-item" data-phase="5" data-idx="2" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">不動産業者・建築会社との打ち合わせ</div></div>
+                                <div class="todo-item" data-phase="5" data-idx="3" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">物件の取得または建設を決定</div></div>
+                                <div class="todo-item" data-phase="5" data-idx="4" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">民泊許可・届出などの法的手続き</div></div>
+                                <div class="todo-item" data-phase="5" data-idx="5" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">高級リゾート物件の完成・取得</div></div>
+                                <div class="todo-item" data-phase="5" data-idx="6" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">民泊プラットフォームに掲載・運用開始</div></div>
+                                <div class="todo-item" data-phase="5" data-idx="7" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">運用を仕組み化（管理委託or自動化）</div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -818,6 +944,61 @@
             document.querySelector('.overlay').classList.remove('active');
         }
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideDetail(); });
+
+        // === To Do チェックリスト機能 ===
+        function getCheckedState() {
+            try {
+                return JSON.parse(localStorage.getItem('brainmap-todos') || '{}');
+            } catch(e) { return {}; }
+        }
+        function saveCheckedState(state) {
+            localStorage.setItem('brainmap-todos', JSON.stringify(state));
+        }
+
+        function toggleCheck(el) {
+            el.classList.toggle('checked');
+            const phase = el.dataset.phase;
+            const idx = el.dataset.idx;
+            const state = getCheckedState();
+            const key = 'p' + phase + '_' + idx;
+            state[key] = el.classList.contains('checked');
+            saveCheckedState(state);
+            updateProgress(phase);
+        }
+
+        function toggleTodos(phase) {
+            const container = document.getElementById('todos-' + phase);
+            const hint = container.previousElementSibling;
+            const isOpen = container.classList.toggle('open');
+            hint.classList.toggle('open', isOpen);
+            hint.textContent = isOpen ? '\u25B2 To Do\u3092\u9589\u3058\u308B' : '\u25BC To Do\u3092\u958B\u304F';
+        }
+
+        function updateProgress(phase) {
+            const items = document.querySelectorAll('.todo-item[data-phase="' + phase + '"]');
+            const total = items.length;
+            if (total === 0) return;
+            let checked = 0;
+            items.forEach(function(item) { if (item.classList.contains('checked')) checked++; });
+            const pct = Math.round((checked / total) * 100);
+            const progressEl = document.querySelector('.phase-progress[data-phase="' + phase + '"]');
+            if (progressEl) {
+                progressEl.querySelector('.progress-percent').textContent = pct + '%';
+                progressEl.querySelector('.progress-fill').style.width = pct + '%';
+            }
+        }
+
+        // ページ読み込み時にlocalStorageからチェック状態を復元
+        (function restoreChecks() {
+            const state = getCheckedState();
+            document.querySelectorAll('.todo-item').forEach(function(item) {
+                const key = 'p' + item.dataset.phase + '_' + item.dataset.idx;
+                if (state[key]) {
+                    item.classList.add('checked');
+                }
+            });
+            for (let i = 1; i <= 5; i++) updateProgress(i);
+        })();
     </script>
 </body>
 </html>
