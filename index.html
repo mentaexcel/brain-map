@@ -51,7 +51,7 @@
             border-radius: 12px; padding: 15px 20px; width: 300px; text-align: left;
         }
         .central-summary ul { list-style: none; font-size: 0.85rem; line-height: 1.8; color: rgba(255, 255, 255, 0.8); }
-        .central-summary li::before { content: '\25B8 '; color: #4a9eff; }
+        .central-summary li::before { content: '▸ '; color: #4a9eff; }
 
         .node-card { position: absolute; display: flex; align-items: flex-start; gap: 15px; cursor: pointer; transition: all 0.3s ease; }
         .node-card:hover { transform: scale(1.03); }
@@ -73,46 +73,52 @@
         .node-summary .more { display: inline-block; margin-top: 10px; font-size: 0.75rem; color: rgba(255, 255, 255, 0.4); transition: color 0.3s; }
         .node-card:hover .node-summary .more { color: rgba(255, 255, 255, 0.8); }
 
+        /* Node 1: 左上 */
         .node-card-1 { left: 3%; top: 10%; }
         .node-card-1 .node { background: radial-gradient(circle at 30% 30%, #00d4aa, #00866a); box-shadow: 0 0 30px rgba(0, 212, 170, 0.5); }
         .node-card-1 .node-summary { border-left: 3px solid #00d4aa; }
         .node-card-1 h3 { color: #00ffcc; }
-        .node-card-1 li::before { content: '\2022 '; color: #00d4aa; }
+        .node-card-1 li::before { content: '• '; color: #00d4aa; }
 
+        /* Node 2: 右上 */
         .node-card-2 { right: 3%; top: 10%; flex-direction: row-reverse; }
         .node-card-2 .node { background: radial-gradient(circle at 30% 30%, #44ff88, #22aa44); box-shadow: 0 0 30px rgba(68, 255, 136, 0.5); }
         .node-card-2 .node-summary { border-right: 3px solid #44ff88; text-align: right; }
         .node-card-2 h3 { color: #66ff99; }
         .node-card-2 li::before { content: ''; }
-        .node-card-2 li::after { content: ' \2022'; color: #44ff88; }
+        .node-card-2 li::after { content: ' •'; color: #44ff88; }
 
+        /* Node 3: 左下 */
         .node-card-3 { left: 3%; bottom: 15%; }
         .node-card-3 .node { background: radial-gradient(circle at 30% 30%, #ff4444, #aa2222); box-shadow: 0 0 30px rgba(255, 68, 68, 0.5); }
         .node-card-3 .node-summary { border-left: 3px solid #ff4444; }
         .node-card-3 h3 { color: #ff6666; }
-        .node-card-3 li::before { content: '\2022 '; color: #ff4444; }
+        .node-card-3 li::before { content: '• '; color: #ff4444; }
 
+        /* Node 4: 右下 */
         .node-card-4 { right: 3%; bottom: 15%; flex-direction: row-reverse; }
         .node-card-4 .node { background: radial-gradient(circle at 30% 30%, #ffaa00, #aa7700); box-shadow: 0 0 30px rgba(255, 170, 0, 0.5); }
         .node-card-4 .node-summary { border-right: 3px solid #ffaa00; text-align: right; }
         .node-card-4 h3 { color: #ffcc44; }
         .node-card-4 li::before { content: ''; }
-        .node-card-4 li::after { content: ' \2022'; color: #ffaa00; }
+        .node-card-4 li::after { content: ' •'; color: #ffaa00; }
 
+        /* Node 5: 上中央 */
         .node-card-5 { left: 50%; top: 1%; transform: translateX(-50%); flex-direction: column; align-items: center; }
         .node-card-5:hover { transform: translateX(-50%) scale(1.03); }
         .node-card-5 .node { background: radial-gradient(circle at 30% 30%, #ff44ff, #aa22aa); box-shadow: 0 0 30px rgba(255, 68, 255, 0.5); }
         .node-card-5 .node-summary { border-top: 3px solid #ff44ff; text-align: center; width: 300px; }
         .node-card-5 h3 { color: #ff88ff; }
-        .node-card-5 li::before { content: '\2022 '; color: #ff44ff; }
+        .node-card-5 li::before { content: '• '; color: #ff44ff; }
         .node-card-5 li { text-align: left; }
 
+        /* Node 6: 下中央 */
         .node-card-6 { left: 50%; bottom: 0%; transform: translateX(-50%); flex-direction: column-reverse; align-items: center; }
         .node-card-6:hover { transform: translateX(-50%) scale(1.03); }
         .node-card-6 .node { background: radial-gradient(circle at 30% 30%, #00aaff, #0066aa); box-shadow: 0 0 30px rgba(0, 170, 255, 0.5); }
         .node-card-6 .node-summary { border-bottom: 3px solid #00aaff; text-align: center; width: 300px; }
         .node-card-6 h3 { color: #44ccff; }
-        .node-card-6 li::before { content: '\2022 '; color: #00aaff; }
+        .node-card-6 li::before { content: '• '; color: #00aaff; }
         .node-card-6 li { text-align: left; }
 
         .connections { position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 1; }
@@ -126,6 +132,7 @@
         .connection-6 { stroke: rgba(0, 170, 255, 0.3); }
         .connection-cross { stroke: rgba(255, 255, 255, 0.08); stroke-width: 1; stroke-dasharray: 3, 6; }
 
+        /* Detail Panel */
         .detail-panel {
             position: fixed; right: -500px; top: 0; width: 480px; height: 100vh;
             background: rgba(15, 15, 30, 0.98); border-left: 1px solid rgba(255, 255, 255, 0.1);
@@ -140,7 +147,7 @@
         .detail-section p, .detail-section li { font-size: 0.95rem; line-height: 1.8; color: rgba(255, 255, 255, 0.85); }
         .detail-section ul { list-style: none; padding: 0; }
         .detail-section li { padding: 8px 0; padding-left: 20px; position: relative; }
-        .detail-section li::before { content: '\25CF'; position: absolute; left: 0; color: rgba(74, 158, 255, 0.7); font-size: 0.6rem; top: 12px; }
+        .detail-section li::before { content: '●'; position: absolute; left: 0; color: rgba(74, 158, 255, 0.7); font-size: 0.6rem; top: 12px; }
         .insight-box { background: rgba(74, 158, 255, 0.1); border-left: 3px solid #4a9eff; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
         .insight-box .label { font-size: 0.75rem; color: #4a9eff; text-transform: uppercase; margin-bottom: 8px; }
         .related-nodes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
@@ -160,6 +167,7 @@
         .legend-item { display: flex; align-items: center; gap: 8px; margin: 5px 0; }
         .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
 
+        /* Advice Section */
         .advice-section { margin: 60px auto; max-width: 1200px; padding: 0 20px; }
         .advice-header { text-align: center; margin-bottom: 40px; }
         .advice-icon { font-size: 3rem; display: block; margin-bottom: 15px; }
@@ -174,7 +182,7 @@
         .advice-card p { font-size: 0.9rem; line-height: 1.8; color: rgba(255, 255, 255, 0.75); }
         .advice-card ul { list-style: none; padding: 0; }
         .advice-card li { font-size: 0.9rem; line-height: 1.7; color: rgba(255, 255, 255, 0.75); padding: 8px 0; padding-left: 20px; position: relative; }
-        .advice-card li::before { content: '\25B8'; position: absolute; left: 0; color: rgba(255, 255, 255, 0.4); }
+        .advice-card li::before { content: '▸'; position: absolute; left: 0; color: rgba(255, 255, 255, 0.4); }
         .advice-insight { border-left: 4px solid #4a9eff; }
         .advice-insight .card-icon { color: #4a9eff; }
         .advice-action { border-left: 4px solid #44ff88; }
@@ -188,21 +196,6 @@
         .advice-local { border-left: 4px solid #00aaff; }
         .advice-local .card-icon { color: #00aaff; }
         .advice-local li::before { color: #00aaff; }
-        .advice-investment { border-left: 4px solid #c8a060; }
-        .advice-investment .card-icon { color: #c8a060; }
-        .advice-investment li::before { color: #c8a060; }
-        .advice-philosophy { border-left: 4px solid #e8c840; grid-column: 1 / -1; }
-        .advice-philosophy .card-icon { color: #e8c840; }
-        .advice-philosophy li::before { color: #e8c840; }
-        .advice-spiritual { border-left: 4px solid #aa88ff; }
-        .advice-spiritual .card-icon { color: #aa88ff; }
-        .advice-spiritual li::before { color: #aa88ff; }
-        .advice-orchestration { border-left: 4px solid #00e5ff; }
-        .advice-orchestration .card-icon { color: #00e5ff; }
-        .advice-orchestration li::before { color: #00e5ff; }
-        .advice-powerautomate { border-left: 4px solid #0078d4; }
-        .advice-powerautomate .card-icon { color: #0078d4; }
-        .advice-powerautomate li::before { color: #0078d4; }
         .advice-next { border-left: 4px solid #ff44ff; grid-column: 1 / -1; }
         .advice-next .card-icon { color: #ff44ff; }
         .advice-long { border-left: 4px solid #ffd700; grid-column: 1 / -1; }
@@ -215,6 +208,7 @@
         .step div strong { display: block; margin-bottom: 5px; color: rgba(255, 255, 255, 0.9); }
         .step div p { margin: 0; font-size: 0.85rem; }
 
+        /* Roadmap */
         .roadmap-section { margin: 60px auto; max-width: 1200px; padding: 0 20px; }
         .roadmap-header { text-align: center; margin-bottom: 50px; }
         .roadmap-header h2 { font-size: 1.8rem; font-weight: 300; letter-spacing: 0.15em; color: rgba(255, 255, 255, 0.9); margin-bottom: 10px; }
@@ -267,45 +261,6 @@
         .phase-3 .phase-tasks li::before { color: #00aaff; }
         .phase-4 .phase-tasks li::before { color: #ff4444; }
         .phase-5 .phase-tasks li::before { color: #ff44ff; }
-        .phase-toggle-hint { margin-top: 12px; font-size: 0.75rem; color: rgba(255,255,255,0.35); text-align: center; cursor: pointer; transition: color 0.3s; }
-        .roadmap-content:hover .phase-toggle-hint { color: rgba(255,255,255,0.6); }
-        .phase-toggle-hint.open { color: rgba(255,255,255,0.5); }
-
-        .phase-progress { margin-top: 15px; }
-        .progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-        .progress-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
-        .progress-percent { font-size: 0.85rem; font-weight: bold; }
-        .phase-1 .progress-percent { color: #00d4aa; }
-        .phase-2 .progress-percent { color: #44ff88; }
-        .phase-3 .progress-percent { color: #00aaff; }
-        .phase-4 .progress-percent { color: #ff4444; }
-        .phase-5 .progress-percent { color: #ff44ff; }
-        .progress-bar { width: 100%; height: 6px; background: rgba(255,255,255,0.08); border-radius: 3px; overflow: hidden; }
-        .progress-fill { height: 100%; border-radius: 3px; transition: width 0.4s ease; }
-        .phase-1 .progress-fill { background: linear-gradient(90deg, #00d4aa, #00ffcc); }
-        .phase-2 .progress-fill { background: linear-gradient(90deg, #44ff88, #66ffaa); }
-        .phase-3 .progress-fill { background: linear-gradient(90deg, #00aaff, #44ccff); }
-        .phase-4 .progress-fill { background: linear-gradient(90deg, #ff4444, #ff6666); }
-        .phase-5 .progress-fill { background: linear-gradient(90deg, #ff44ff, #ff88ff); }
-
-        .phase-todos { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        .phase-todos.open { max-height: 800px; }
-        .phase-todos-inner { padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 15px; }
-        .todo-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); cursor: pointer; transition: background 0.2s; }
-        .todo-item:last-child { border-bottom: none; }
-        .todo-item:hover { background: rgba(255,255,255,0.03); margin: 0 -10px; padding-left: 10px; padding-right: 10px; border-radius: 8px; }
-        .todo-checkbox { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; margin-top: 1px; }
-        .todo-item.checked .todo-checkbox { border-color: transparent; }
-        .phase-1 .todo-item.checked .todo-checkbox { background: #00d4aa; }
-        .phase-2 .todo-item.checked .todo-checkbox { background: #44ff88; }
-        .phase-3 .todo-item.checked .todo-checkbox { background: #00aaff; }
-        .phase-4 .todo-item.checked .todo-checkbox { background: #ff4444; }
-        .phase-5 .todo-item.checked .todo-checkbox { background: #ff44ff; }
-        .todo-checkbox::after { content: '\2713'; color: #0a0a1a; font-size: 0.75rem; font-weight: bold; opacity: 0; transition: opacity 0.2s; }
-        .todo-item.checked .todo-checkbox::after { opacity: 1; }
-        .todo-text { font-size: 0.85rem; color: rgba(255,255,255,0.75); line-height: 1.5; transition: all 0.2s; }
-        .todo-item.checked .todo-text { text-decoration: line-through; color: rgba(255,255,255,0.35); }
-
         .phase-outcome { margin-top: 15px; padding: 12px 15px; border-radius: 8px; font-size: 0.85rem; }
         .phase-1 .phase-outcome { background: rgba(0, 212, 170, 0.1); border-left: 3px solid #00d4aa; }
         .phase-2 .phase-outcome { background: rgba(68, 255, 136, 0.1); border-left: 3px solid #44ff88; }
@@ -320,7 +275,7 @@
         .phase-5 .outcome-label { color: #ff44ff; }
         .advice-footer { margin-top: 40px; text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.02); border-radius: 12px; }
         .advice-footer p { font-size: 0.85rem; color: rgba(255, 255, 255, 0.5); line-height: 1.8; }
-
+        /* Tablet */
         @media (max-width: 900px) {
             .roadmap-timeline::before { left: 20px; }
             .roadmap-phase { flex-direction: column !important; padding-left: 50px; }
@@ -329,15 +284,18 @@
             .advice-grid { grid-template-columns: 1fr; }
         }
 
+        /* Mobile */
         @media (max-width: 600px) {
             h1 { font-size: 1.5rem; letter-spacing: 0.15em; }
             .subtitle { font-size: 0.75rem; }
             .date { position: static; text-align: center; transform: none; margin-top: 8px; }
             header { padding: 15px 0; }
             .container { padding: 10px; }
+
             .sns-bar { gap: 20px; flex-wrap: wrap; }
             .sns-stat { font-size: 0.75rem; }
             .sns-stat .count { font-size: 0.85rem; }
+
             .mind-map {
                 min-height: auto; display: flex; flex-direction: column;
                 align-items: stretch; gap: 15px; margin: 20px 0; padding: 0;
@@ -351,13 +309,19 @@
             .central-node .icon { font-size: 2rem; margin-bottom: 5px; }
             .central-node .title { font-size: 0.95rem; }
             .central-node .amount { font-size: 1.4rem; }
-            .central-summary { position: static; transform: none; width: 100%; margin-top: 15px; }
+            .central-summary {
+                position: static; transform: none; width: 100%;
+                margin-top: 15px;
+            }
+
             .node-card {
                 position: static !important; transform: none !important;
                 flex-direction: row !important; width: 100%;
             }
             .node-card:hover { transform: none !important; }
-            .node-card-5, .node-card-6 { flex-direction: row !important; align-items: flex-start !important; }
+            .node-card-5, .node-card-6 {
+                flex-direction: row !important; align-items: flex-start !important;
+            }
             .node { width: 70px; height: 70px; min-width: 70px; }
             .node .icon { font-size: 1.4rem; }
             .node .label { font-size: 0.65rem; }
@@ -372,7 +336,8 @@
             .node-summary h3 { font-size: 0.85rem; }
             .node-summary .more { display: none; }
             .node-card-2 li::after, .node-card-4 li::after { display: none; }
-            .node-card-2 li::before, .node-card-4 li::before { content: '\2022 '; }
+            .node-card-2 li::before, .node-card-4 li::before { content: '• '; }
+
             .advice-section { margin: 30px auto; padding: 0 10px; }
             .advice-header h2 { font-size: 1.3rem; }
             .advice-icon { font-size: 2rem; }
@@ -384,6 +349,7 @@
             .advice-next, .advice-long { grid-column: auto; }
             .step { gap: 10px; }
             .step-num { width: 28px; height: 28px; font-size: 0.85rem; }
+
             .roadmap-section { margin: 30px auto; padding: 0 10px; }
             .roadmap-header h2 { font-size: 1.3rem; }
             .roadmap-header { margin-bottom: 30px; }
@@ -395,10 +361,13 @@
             .phase-number { width: 40px; height: 40px; font-size: 1.2rem; }
             .phase-title h3 { font-size: 1rem; }
             .phase-tasks li { font-size: 0.8rem; padding-left: 20px; }
+
             .detail-panel { width: 100vw; padding: 20px; }
             .detail-panel h2 { font-size: 1.2rem; }
             .detail-section p, .detail-section li { font-size: 0.85rem; }
+
             .legend { position: static; margin: 20px auto; width: fit-content; }
+
             .advice-footer { margin-top: 20px; }
             .advice-footer p { font-size: 0.75rem; }
         }
@@ -410,148 +379,149 @@
         <header>
             <h1>BRAIN MAP</h1>
             <p class="subtitle">思考の可視化 / Visualization of Thoughts</p>
-            <span class="date">2026.02.04</span>
+            <span class="date">2026-02-16</span>
             <div class="sns-bar">
-                <div class="sns-stat"><span class="platform">YouTube</span> <span class="count">17万人</span></div>
-                <div class="sns-stat"><span class="platform">X (Twitter)</span> <span class="count">1.1万人</span></div>
+                <div class="sns-stat"><span class="platform">YouTube</span> 登録者 <span class="count">17万人</span></div>
+                <div class="sns-stat"><span class="platform">X</span> フォロワー <span class="count">1.1万人</span></div>
+                <div class="sns-stat"><span class="platform">Obsidian</span> メモ <span class="count">16件</span></div>
             </div>
         </header>
 
         <div class="mind-map">
             <svg class="connections" viewBox="0 0 1600 1200" preserveAspectRatio="xMidYMid meet">
-                <line x1="800" y1="600" x2="250" y2="200" class="connection connection-1 connection-strong"/>
-                <line x1="800" y1="600" x2="1350" y2="200" class="connection connection-2 connection-strong"/>
-                <line x1="800" y1="600" x2="250" y2="950" class="connection connection-3 connection-strong"/>
-                <line x1="800" y1="600" x2="1350" y2="950" class="connection connection-4 connection-strong"/>
-                <line x1="800" y1="600" x2="800" y2="100" class="connection connection-5"/>
-                <line x1="800" y1="600" x2="800" y2="1100" class="connection connection-6"/>
-                <line x1="250" y1="200" x2="1350" y2="200" class="connection connection-cross"/>
-                <line x1="250" y1="200" x2="250" y2="950" class="connection connection-cross"/>
-                <line x1="1350" y1="200" x2="1350" y2="950" class="connection connection-cross"/>
-                <line x1="250" y1="950" x2="1350" y2="950" class="connection connection-cross"/>
+                <line class="connection connection-1 connection-strong" x1="250" y1="200" x2="720" y2="550"/>
+                <line class="connection connection-2" x1="1350" y1="200" x2="880" y2="550"/>
+                <line class="connection connection-3" x1="250" y1="900" x2="720" y2="650"/>
+                <line class="connection connection-4" x1="1350" y1="900" x2="880" y2="650"/>
+                <line class="connection connection-5" x1="800" y1="120" x2="800" y2="500"/>
+                <line class="connection connection-6" x1="800" y1="1100" x2="800" y2="700"/>
+                <line class="connection connection-cross" x1="250" y1="200" x2="1350" y2="200"/>
+                <line class="connection connection-cross" x1="250" y1="200" x2="250" y2="900"/>
+                <line class="connection connection-cross" x1="1350" y1="200" x2="1350" y2="900"/>
+                <line class="connection connection-cross" x1="250" y1="900" x2="1350" y2="900"/>
             </svg>
 
             <div class="central-area">
                 <div class="central-node" onclick="showDetail('central')">
-                    <span class="icon">🎯</span>
-                    <span class="title">年商1億円突破</span>
-                    <span class="amount">1億円</span>
+                    <span class="icon">&#127919;</span>
+                    <span class="title">年商</span>
+                    <span class="amount">1億円突破</span>
                 </div>
                 <div class="central-summary">
                     <ul>
                         <li>仕組み化で自分の時間を使わない</li>
-                        <li>4つの収益柱で安定構造を構築</li>
-                        <li>利益を不動産資産に変えていく</li>
-                        <li>エッセンシャル思考で順番に実行</li>
+                        <li>4つの収益柱で達成</li>
+                        <li>AI組織で事業運営を自動化</li>
+                        <li>エッセンシャル思考で順番に</li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Node 1: YouTube差別化戦略 -->
+            <!-- Node 1: YouTube検証チャンネル戦略 -->
             <div class="node-card node-card-1" onclick="showDetail('node1')">
                 <div class="node">
-                    <span class="icon">🔬</span>
-                    <span class="label">YouTube<br>差別化戦略</span>
+                    <span class="icon">&#128300;</span>
+                    <span class="label">YouTube<br>検証ch</span>
                 </div>
                 <div class="node-summary">
-                    <h3>検証チャンネルへリブランディング</h3>
+                    <h3>YouTube検証チャンネル戦略</h3>
                     <ul>
-                        <li>How toはAIに代替される時代</li>
                         <li>「全部自分で試した。本当に使えるのはこれ」</li>
                         <li>わかりやすい×深い検証の空白ポジション</li>
-                        <li>判断を教える＝AIに代替されない価値</li>
+                        <li>How toからWhy/Who軸へ転換</li>
+                        <li>無料=判断 / 有料=実践で棲み分け</li>
                     </ul>
-                    <span class="more">クリックで詳細 →</span>
+                    <span class="more">&#9654; クリックで詳細</span>
                 </div>
             </div>
 
             <!-- Node 2: 法人向け事業 -->
             <div class="node-card node-card-2" onclick="showDetail('node2')">
                 <div class="node">
-                    <span class="icon">🏢</span>
+                    <span class="icon">&#127970;</span>
                     <span class="label">法人向け<br>事業</span>
                 </div>
                 <div class="node-summary">
                     <h3>法人向けオンラインスクール</h3>
                     <ul>
-                        <li>単価30〜100万円で広告費を即回収</li>
-                        <li>「17万人のプロが教えるAI研修」</li>
-                        <li>法人で稼ぐ→YouTubeは理念で発信</li>
-                        <li>広告→LP→個別相談→法人契約</li>
+                        <li>単価30〜100万円 / 1-2件で広告費回収</li>
+                        <li>Power Automateが法人市場で最強</li>
+                        <li>沖縄AI支援ナンバーワンを目指す</li>
+                        <li>守成クラブ300人の経営者ネットワーク</li>
                     </ul>
-                    <span class="more">← クリックで詳細</span>
+                    <span class="more">詳細 &#9664;</span>
                 </div>
             </div>
 
-            <!-- Node 3: 広告ファネル -->
+            <!-- Node 3: 広告ファネル＆LINE導線 -->
             <div class="node-card node-card-3" onclick="showDetail('node3')">
                 <div class="node">
-                    <span class="icon">📣</span>
-                    <span class="label">広告ファネル<br>LINE導線</span>
+                    <span class="icon">&#128227;</span>
+                    <span class="label">広告<br>ファネル</span>
                 </div>
                 <div class="node-summary">
-                    <h3>広告→LINE→ウェビナー自動導線</h3>
+                    <h3>広告戦略＆LINE導線設計</h3>
                     <ul>
-                        <li>ROAS 300〜500%を目指す</li>
-                        <li>LINE登録→アンケート→法人/個人自動分岐</li>
-                        <li>オートウェビナーで自分の時間を使わず販売</li>
-                        <li>YouTubeとは別の集客エンジン</li>
+                        <li>目標ROAS 300〜500%</li>
+                        <li>LINE登録→アンケート→自動分岐</li>
+                        <li>法人: 個別相談→Zoom成約</li>
+                        <li>個人: オートウェビナー→講座販売</li>
                     </ul>
-                    <span class="more">クリックで詳細 →</span>
+                    <span class="more">&#9654; クリックで詳細</span>
                 </div>
             </div>
 
-            <!-- Node 4: 沖縄AI支援 -->
+            <!-- Node 4: AI組織＆自動化 -->
             <div class="node-card node-card-4" onclick="showDetail('node4')">
                 <div class="node">
-                    <span class="icon">🌺</span>
-                    <span class="label">沖縄AI支援<br>No.1</span>
+                    <span class="icon">&#129302;</span>
+                    <span class="label">AI組織<br>自動化</span>
                 </div>
                 <div class="node-summary">
-                    <h3>沖縄でAI支援ナンバーワンを取る</h3>
+                    <h3>AI組織構想＆オーケストレーション</h3>
                     <ul>
-                        <li>東京の3年遅れで届くAIブームを先取り</li>
-                        <li>守成クラブで経営者300人にリーチ</li>
-                        <li>対面＋オンラインのハイブリッド営業</li>
-                        <li>法人事業が軌道に乗った後に本格化</li>
+                        <li>代表→管理者→AI中間管理職→作業AI</li>
+                        <li>SNS運用・顧客返信・メールをAIに</li>
+                        <li>Claude Code Skills / Power Automate</li>
+                        <li>コンテンツ自動展開ツール</li>
                     </ul>
-                    <span class="more">← クリックで詳細</span>
+                    <span class="more">詳細 &#9664;</span>
                 </div>
             </div>
 
-            <!-- Node 5: LMS SaaS -->
+            <!-- Node 5: 理念＆マインド -->
             <div class="node-card node-card-5" onclick="showDetail('node5')">
                 <div class="node">
-                    <span class="icon">💻</span>
-                    <span class="label">LMS SaaS<br>事業</span>
+                    <span class="icon">&#128161;</span>
+                    <span class="label">理念</span>
                 </div>
                 <div class="node-summary">
-                    <h3>AI付きLMSサブスクリプション</h3>
+                    <h3>理念＆マインド</h3>
                     <ul>
-                        <li>マルチテナント化で複数顧客に提供</li>
-                        <li>インフルエンサー・企業がターゲット</li>
-                        <li>月額課金で仕組み化された収益源</li>
-                        <li>自社LMSをベースに開発中</li>
+                        <li>「みんなが自分らしく生きられる環境を作る」</li>
+                        <li>自動化=人生の時間を取り戻す</li>
+                        <li>引き寄せの法則=精神的な解放</li>
+                        <li>YouTubeは理念ベースで発信</li>
                     </ul>
-                    <span class="more">クリックで詳細 →</span>
+                    <span class="more">&#9654; クリックで詳細</span>
                 </div>
             </div>
 
-            <!-- Node 6: 高級リゾート民泊 -->
+            <!-- Node 6: 将来の展開 -->
             <div class="node-card node-card-6" onclick="showDetail('node6')">
                 <div class="node">
-                    <span class="icon">🏨</span>
-                    <span class="label">高級リゾート<br>民泊</span>
+                    <span class="icon">&#128640;</span>
+                    <span class="label">将来の<br>展開</span>
                 </div>
                 <div class="node-summary">
-                    <h3>利益を資産に変える不動産投資</h3>
+                    <h3>将来の展開</h3>
                     <ul>
-                        <li>沖縄オーシャンビューの高級リゾート物件</li>
-                        <li>別荘を作って民泊で運用するスタイル</li>
-                        <li>AI事業の利益を不動産資産に転換</li>
-                        <li>事業が軌道に乗った後のステップ</li>
+                        <li>LMS SaaS（マルチテナント）サブスク</li>
+                        <li>高級リゾート民泊ビジネス（沖縄）</li>
+                        <li>引き寄せの法則の発信活動</li>
+                        <li>事業利益→不動産で資産形成</li>
                     </ul>
-                    <span class="more">クリックで詳細 →</span>
+                    <span class="more">&#9654; クリックで詳細</span>
                 </div>
             </div>
         </div>
@@ -560,185 +530,112 @@
     <!-- Advice Section -->
     <div class="advice-section">
         <div class="advice-header">
-            <span class="advice-icon">💭</span>
+            <span class="advice-icon">&#128173;</span>
             <h2>全体を見たアドバイス</h2>
-            <p class="advice-subtitle">15個のObsidianメモを横断的に分析した洞察と提案</p>
+            <p class="advice-subtitle">16件のメモから読み取れる思考パターンと戦略的示唆</p>
         </div>
         <div class="advice-grid">
+
+            <!-- Insight -->
             <div class="advice-card advice-insight">
                 <div class="advice-card-header">
-                    <span class="card-icon">🔍</span>
-                    <h3>最大の発見：How toの終焉と検証の価値</h3>
+                    <span class="card-icon">&#128269;</span>
+                    <h3>最大の発見 &#8212; AI組織が加速装置</h3>
                 </div>
-                <p>AIがHow toを代替する時代に、SWOT分析から「わかりやすい×深い検証」のポジションが完全に空白であることを発見。これは17万人の説明力と100個の自動化実践量を最大限に活かせる唯一のポジション。競合6チャンネルの誰もやっていない領域を正確に特定できたのは大きい。</p>
+                <p>AI組織構想とAIオーケストレーション構想が合流しました。これは単なる効率化ではなく、「1人で会社を回す」ための根幹アーキテクチャです。代表→管理者→AI中間管理職→作業AIの階層は、そのまま事業のスケーラビリティを決定します。最初の1つのAI業務移管が成功すれば、横展開のスピードは加速度的に上がります。</p>
             </div>
 
+            <!-- Funnel -->
             <div class="advice-card advice-funnel">
                 <div class="advice-card-header">
-                    <span class="card-icon">📣</span>
-                    <h3>広告ファネル：自動化された集客エンジン</h3>
+                    <span class="card-icon">&#128227;</span>
+                    <h3>広告ファネル &#8212; 自動分岐が鍵</h3>
                 </div>
                 <ul>
-                    <li>広告→LINE→アンケート→自動分岐は非常に合理的な設計</li>
-                    <li>法人と個人を1つの導線から自動で振り分けるのは効率的</li>
-                    <li>オートウェビナーで「自分の時間を使わない販売」が年商1億の鍵</li>
-                    <li>ROAS 300〜500%目標は法人単価（30〜100万円）なら現実的</li>
-                    <li>法人は1〜2件成約で広告費100万円を回収できる構造</li>
+                    <li>LINE登録時のアンケートで法人/個人を自動振り分け</li>
+                    <li>法人向け: オートウェビナー→個別相談→Zoom成約</li>
+                    <li>個人向け: オートウェビナー→講座販売ページ</li>
+                    <li>1つの広告導線から2つの収益ルートが生まれる設計</li>
                 </ul>
             </div>
 
+            <!-- Action -->
             <div class="advice-card advice-action">
                 <div class="advice-card-header">
-                    <span class="card-icon">✅</span>
-                    <h3>4つの収益柱で1億円を構築する</h3>
+                    <span class="card-icon">&#9989;</span>
+                    <h3>収益構造 &#8212; 法人1件で黒字</h3>
                 </div>
                 <ul>
-                    <li><strong>柱1: YouTube×検証チャンネル</strong> — 個人向け導線・ブランディング</li>
-                    <li><strong>柱2: 法人向けオンラインスクール</strong> — 広告経由・高単価</li>
-                    <li><strong>柱3: LMS SaaS</strong> — サブスク・仕組み化収益</li>
-                    <li><strong>柱4: 沖縄ローカル法人営業</strong> — 守成クラブ経由・対面</li>
+                    <li>法人単価30〜100万円 → 広告費100万でも1-2件で回収</li>
+                    <li>Power Automateは企業使用率トップ（約8.5%）</li>
+                    <li>Microsoft 365導入済み企業なら追加コストゼロ</li>
+                    <li>法人で稼ぐ → YouTubeは理念で自由に発信できる</li>
                 </ul>
             </div>
 
+            <!-- Warning -->
             <div class="advice-card advice-warning">
                 <div class="advice-card-header">
-                    <span class="card-icon">⚠️</span>
-                    <h3>回避すべき罠：同時並行とHow to回帰</h3>
+                    <span class="card-icon">&#9888;&#65039;</span>
+                    <h3>回避すべき罠 &#8212; 同時並行の誘惑</h3>
                 </div>
-                <p>メモに繰り返し「エッセンシャル思考」「焦って同時並行しない」「順番よく片付ける」と書かれている。これは自分への最も重要な戒め。4つの収益柱と民泊構想を同時に始めようとする誘惑が最大のリスク。また、再生数が伸びない時期にHow toに戻りたくなる衝動にも注意。検証ポジションを信じて継続する覚悟が必要。</p>
+                <p>YouTube、法人事業、LMS SaaS、沖縄ローカル、民泊、引き寄せ発信... やりたいことが多すぎます。メモの中で自分でも「エッセンシャル思考」を強調しています。最大の敵は「全部同時にやりたくなる自分」です。まずYouTube検証チャンネルと法人向け事業の2軸に集中。他は利益が安定してから。</p>
             </div>
 
+            <!-- Local -->
             <div class="advice-card advice-local">
                 <div class="advice-card-header">
-                    <span class="card-icon">🌺</span>
-                    <h3>沖縄の地の利：3年遅れが武器になる</h3>
+                    <span class="card-icon">&#127802;</span>
+                    <h3>沖縄の地の利 &#8212; 3年先行者優位</h3>
                 </div>
                 <ul>
-                    <li>東京のAIブームが沖縄に届くタイミングで先行ポジションを取れる</li>
-                    <li>守成クラブの300人の経営者ネットワークは即座に活用可能</li>
-                    <li>「沖縄のAI教育といえばこの人」は、物理的な距離が参入障壁になる</li>
-                    <li>オンライン事業×対面ローカル営業のハイブリッドは他者が真似しにくい</li>
+                    <li>東京のAIブームが3年遅れで沖縄に届く</li>
+                    <li>守成クラブで300人の経営者にリーチ可能</li>
+                    <li>「沖縄のAI教育といえばこの人」を先に取れる</li>
+                    <li>対面営業×オンライン講座のハイブリッド</li>
                 </ul>
             </div>
 
-            <div class="advice-card advice-investment">
-                <div class="advice-card-header">
-                    <span class="card-icon">🏨</span>
-                    <h3>ビジョン：利益を資産に変える人生設計</h3>
-                </div>
-                <ul>
-                    <li>AI事業（キャッシュフロー型）→ 不動産（資産形成型）の二段構え</li>
-                    <li>高級リゾート民泊は過去の運営経験と沖縄在住が活きる</li>
-                    <li>「今すぐではなく、事業が軌道に乗った後」という判断は正しい</li>
-                    <li>このビジョンがあることで、AI事業のモチベーションも維持される</li>
-                </ul>
-            </div>
-
-            <div class="advice-card advice-philosophy">
-                <div class="advice-card-header">
-                    <span class="card-icon">✨</span>
-                    <h3>理念：「みんなが自分らしく生きられる環境を作る」</h3>
-                </div>
-                <p>すべての活動を貫く理念が明確になった。自動化を教えることは「作業を減らす」ではなく「人生の時間を増やす」こと。この理念があることで、YouTubeは「ツールの使い方」ではなく「人生の時間を取り戻す」という軸で発信できる。法人事業も「社員が自分らしく働ける環境づくり」として提案できる。検証チャンネルとの相性も良い — 「本当に時間が戻ってくるのか」を証明する場になる。</p>
-            </div>
-
-            <div class="advice-card advice-spiritual">
-                <div class="advice-card-header">
-                    <span class="card-icon">🔮</span>
-                    <h3>将来のライフワーク：引き寄せの法則</h3>
-                </div>
-                <ul>
-                    <li>AI・自動化＝時間を取り戻す（物理的な解放）</li>
-                    <li>引き寄せの法則＝マインドを変える（精神的な解放）</li>
-                    <li>両方揃って「自分らしく生きる」が完成する</li>
-                    <li>既存のAI事業ロードマップとは別枠の、もう一つのライフワーク</li>
-                </ul>
-            </div>
-
-            <div class="advice-card advice-orchestration">
-                <div class="advice-card-header">
-                    <span class="card-icon">🤖</span>
-                    <h3>AIオーケストレーション：専門AIによる組織化</h3>
-                </div>
-                <ul>
-                    <li><strong>X投稿担当AI</strong> — SNS投稿の自動生成・スケジュール管理</li>
-                    <li><strong>YouTube台本AI</strong> — 動画の構成案・台本作成</li>
-                    <li><strong>メールやり取りAI</strong> — 返信の下書き・対応</li>
-                    <li><strong>進捗管理AI</strong> — タスク・プロジェクトの追跡</li>
-                    <li><strong>部長AI</strong> — 各専門AIを束ねる中間管理職</li>
-                    <li>実装: Claude CodeのSkills機能で構築</li>
-                </ul>
-            </div>
-
-            <div class="advice-card advice-powerautomate">
-                <div class="advice-card-header">
-                    <span class="card-icon">⚡</span>
-                    <h3>Power Automate：法人市場での武器</h3>
-                </div>
-                <ul>
-                    <li>企業の自動化ツール使用率で<strong>Power Automateが約8.5%でトップ</strong></li>
-                    <li>Dify・n8n推しのインフルエンサーは多いが、法人現場はPower Automate</li>
-                    <li>Microsoft 365導入済み企業なら追加コストなしで使える</li>
-                    <li>「流行り」ではなく「現場で使われている」を教えられる強み</li>
-                    <li>検証ネタ:「Dify vs n8n vs Power Automate、法人で使うならどれ？」</li>
-                </ul>
-            </div>
-
+            <!-- Next Steps -->
             <div class="advice-card advice-next">
                 <div class="advice-card-header">
-                    <span class="card-icon">🚀</span>
-                    <h3>優先順位：エッセンシャル思考で順番に</h3>
+                    <span class="card-icon">&#128640;</span>
+                    <h3>優先順位 &#8212; 今やるべき3つ</h3>
                 </div>
                 <div class="step-list">
                     <div class="step">
                         <div class="step-num">1</div>
                         <div>
-                            <strong>検証チャンネルとしてリブランディング</strong>
-                            <p>比較検証動画3本制作。サムネイルを「問い型」「結果型」に刷新。コンテンツ自動展開ツール稼働開始。</p>
+                            <strong>YouTube検証動画を1本作る</strong>
+                            <p>「Claude vs Copilot、Excel作業で比較」など。ポジションを宣言する最初の一手。考えすぎず、まず1本出す。</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-num">2</div>
                         <div>
-                            <strong>広告ファネル構築＋法人事業の立ち上げ</strong>
-                            <p>LP作成→広告出稿→LINE→オートウェビナーの自動導線を完成させる。法人1〜2件成約で黒字構造。</p>
+                            <strong>法人向けLPを1枚作る</strong>
+                            <p>「社員のAI・Excel研修」の切り口で。Power Automateの法人優位性を訴求。広告出稿の準備。</p>
                         </div>
                     </div>
                     <div class="step">
                         <div class="step-num">3</div>
                         <div>
-                            <strong>沖縄AI支援No.1のポジションを取る</strong>
-                            <p>守成クラブで経営者との関係を深化。対面でAI研修を提案し、沖縄ローカルの法人契約を積み上げる。</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">4</div>
-                        <div>
-                            <strong>LMS SaaSをマルチテナント化して展開</strong>
-                            <p>自社LMSのマルチテナント化を完了。インフルエンサー・企業にサブスク提供し、仕組み化された収益を確立。</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-num">5</div>
-                        <div>
-                            <strong>利益を資産に変える：高級リゾート民泊</strong>
-                            <p>AI事業の利益が安定したら、沖縄オーシャンビューの高級リゾート物件に投資。キャッシュフロー→資産形成へ。</p>
+                            <strong>AI組織の第一歩 &#8212; 1つの業務をAIに移管</strong>
+                            <p>X投稿の自動生成 or メールの下書きAIなど、小さく始める。成功体験がすべてを加速させる。</p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Long Advice -->
             <div class="advice-card advice-long">
                 <div class="advice-card-header">
-                    <span class="card-icon">📝</span>
-                    <h3>Claudeからの総合アドバイス</h3>
+                    <span class="card-icon">&#128221;</span>
+                    <h3>総合アドバイス &#8212; 16件のメモを俯瞰して</h3>
                 </div>
-                <p>15個のメモを通して見えるのは、事業設計・仕組み化・理念が一貫した人生設計です。「みんなが自分らしく生きられる環境を作る」— この理念が、自動化教育（物理的な時間の解放）と引き寄せの法則（精神的な解放）の両方を包み込む上位概念として存在しています。</p>
-                <p>事業面では、17万人の説明力、100個の自動化実践、上場企業コンサル実績を「検証チャンネル」として束ね、「わかりやすい×深い検証」の空白ポジションを正確に特定。法人市場ではPower Automateが使用率トップ（約8.5%）という事実を武器に、「流行りのツール」ではなく「現場で使われているツール」を教えられる強みがあります。</p>
-                <p>法人向け事業を先に立ち上げるという判断も合理的です。法人の高単価（30〜100万円）なら広告費を少ない成約数で回収でき、利益が出ればYouTubeを「再生数を追いかけず理念ベースで発信する場」にできる。この「法人で稼ぎ、YouTubeは理念で発信」という二層構造が、長期的なモチベーションと収益を両立させます。</p>
-                <p>さらに「AIオーケストレーション」という構想が加わりました。X投稿AI、YouTube台本AI、メールAI、進捗管理AI、部長AI — 専門AIたちによる組織を作り、自分は指揮者として統括する。Claude CodeのSkillsで実装し、仕組み化の究極形を目指す。これ自体が検証コンテンツにもなり、法人研修のネタにもなる一石三鳥のアイデアです。</p>
-                <p>そして将来的には、引き寄せの法則を通じた発信というライフワークも見据えている。AI事業（物理的な解放）と引き寄せ（精神的な解放）— この二つが揃って初めて「自分らしく生きる」が完成するという世界観は、すべての活動に意味を与えています。</p>
-                <p>最も大切なのは、メモに繰り返し書かれている「エッセンシャル思考」。順番を守って、一つずつ確実に片付ける。これが年商1億円、資産形成、そしてその先のライフワークへの最短ルートです。</p>
+                <p>あなたの思考は非常にクリアです。理念（みんなが自分らしく生きられる環境を作る）から事業戦略、具体的な導線設計、競合分析まで一貫しています。特に「法人で稼ぐ→YouTubeは理念で発信」という構造は、精神的にも経済的にも持続可能な設計です。</p>
+                <p>新しく加わった「AI組織構想」は、これまでの全計画を束ねる上位概念になり得ます。自分がやっている作業をAIに移管できれば、YouTube制作も広告運用も法人対応も、すべて並列で走らせられます。つまりAI組織の構築は「エッセンシャル思考に反する同時並行」ではなく、「同時並行を可能にする基盤」です。</p>
+                <p>ただし注意点が1つ。AI組織構築自体に時間をかけすぎないこと。まずは「売上が立つ仕組み」を先に作り、その運用の中でAIに任せる部分を増やしていく。仕組みが先、AI化は後。この順番を間違えると、美しいシステムだけが残って売上がゼロということになりかねません。</p>
             </div>
         </div>
     </div>
@@ -746,185 +643,141 @@
     <!-- Roadmap -->
     <div class="roadmap-section">
         <div class="roadmap-header">
-            <h2>🗺️ ROADMAP</h2>
-            <p>年商1億円＋資産形成への道筋（エッセンシャル思考で順番に）</p>
+            <h2>&#128506;&#65039; ROADMAP</h2>
+            <p>年商1億円達成までの実行計画</p>
         </div>
         <div class="roadmap-timeline">
-            <div class="roadmap-phase">
-                <div class="roadmap-content phase-1">
+
+            <!-- Phase 1 -->
+            <div class="roadmap-phase phase-1">
+                <div class="roadmap-content">
                     <div class="phase-header">
                         <div class="phase-number">1</div>
-                        <div class="phase-title"><h3>検証チャンネルの確立</h3><span class="timing">Phase 1 - 立ち上げ期</span><br><span class="phase-period">1〜2週間</span></div>
+                        <div class="phase-title">
+                            <h3>基盤構築</h3>
+                            <span class="phase-period">1〜3ヶ月目</span>
+                        </div>
                     </div>
                     <div class="phase-body">
-                        <p>「AI×自動化を徹底検証して、本当に使えるものだけ教える」チャンネルとしてリブランディング。</p>
+                        <p>YouTube検証チャンネルの方向性を確立し、法人向けLPを作成する。</p>
                         <ul class="phase-tasks">
-                            <li>法人向けLP（「17万人のプロが教えるAI研修」）を作成</li>
-                            <li>比較検証動画3本を制作・投稿</li>
-                            <li>YouTube概要欄・リンクにLPを設置</li>
-                            <li>サムネイルを「問い型」「結果型」に刷新</li>
-                            <li>コンテンツ自動展開ツールを稼働開始</li>
+                            <li>YouTube検証動画を3〜5本投稿（比較検証系）</li>
+                            <li>チャンネル概要・理念を明記</li>
+                            <li>法人向けLP作成（Power Automate研修）</li>
+                            <li>LINE公式アカウント開設＆アンケート設計</li>
+                            <li>AI組織の第一歩：X投稿AIを稼働</li>
                         </ul>
-                        <div class="phase-outcome"><span class="outcome-label">目標</span>「検証系AI YouTuber」としての認知獲得</div>
-                        <div class="phase-progress" data-phase="1">
-                            <div class="progress-header"><span class="progress-label">達成率</span><span class="progress-percent">0%</span></div>
-                            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-                        </div>
-                        <div class="phase-toggle-hint" onclick="toggleTodos(1)">▼ To Doを開く</div>
-                        <div class="phase-todos" id="todos-1">
-                            <div class="phase-todos-inner">
-                                <div class="todo-item" data-phase="1" data-idx="0" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">検証チャンネルのコンセプトを文章化する</div></div>
-                                <div class="todo-item" data-phase="1" data-idx="1" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">チャンネル名・プロフィール文を検証寄りに変更</div></div>
-                                <div class="todo-item" data-phase="1" data-idx="2" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">比較検証動画テーマを3本決定</div></div>
-                                <div class="todo-item" data-phase="1" data-idx="3" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">1本目の比較検証動画を制作・投稿</div></div>
-                                <div class="todo-item" data-phase="1" data-idx="4" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">2本目の比較検証動画を制作・投稿</div></div>
-                                <div class="todo-item" data-phase="1" data-idx="5" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">3本目の比較検証動画を制作・投稿</div></div>
-                                <div class="todo-item" data-phase="1" data-idx="6" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">法人向けLP（「17万人のプロが教えるAI研修」）を作成</div></div>
-                                <div class="todo-item" data-phase="1" data-idx="7" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">YouTube概要欄・リンクにLPを設置</div></div>
-                                <div class="todo-item" data-phase="1" data-idx="8" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">サムネイルを「問い型」「結果型」にリニューアル</div></div>
-                                <div class="todo-item" data-phase="1" data-idx="9" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">コンテンツ自動展開ツールを設定・稼働開始</div></div>
-                                <div class="todo-item" data-phase="1" data-idx="10" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">視聴者の反応を分析し方向性を確認</div></div>
-                            </div>
+                        <div class="phase-outcome">
+                            <span class="outcome-label">達成指標</span>
+                            YouTube新方向の視聴者反応を確認 / LP完成 / LINE導線の骨格完成
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="roadmap-phase">
-                <div class="roadmap-content phase-2">
+
+            <!-- Phase 2 -->
+            <div class="roadmap-phase phase-2">
+                <div class="roadmap-content">
                     <div class="phase-header">
                         <div class="phase-number">2</div>
-                        <div class="phase-title"><h3>広告ファネル構築・法人事業</h3><span class="timing">Phase 2 - 収益基盤構築</span><br><span class="phase-period">1〜2ヶ月目</span></div>
+                        <div class="phase-title">
+                            <h3>広告ファネル＆法人営業</h3>
+                            <span class="phase-period">4〜6ヶ月目</span>
+                        </div>
                     </div>
                     <div class="phase-body">
-                        <p>広告→LINE→アンケート→オートウェビナーの自動導線を構築。法人は個別相談へ誘導。</p>
+                        <p>広告出稿を開始し、LINE自動分岐ファネルを本格稼働。法人営業も並行。</p>
                         <ul class="phase-tasks">
-                            <li>Facebook/Instagram広告クリエイティブ作成・出稿</li>
-                            <li>LINE登録→アンケート→自動分岐の仕組み構築</li>
-                            <li>オートウェビナー（法人向け・個人向け）を制作</li>
-                            <li>法人向け個別相談（Zoom）→成約の流れを確立</li>
+                            <li>Facebook/Instagram広告出稿（法人向け）</li>
+                            <li>オートウェビナー制作＆設置</li>
+                            <li>法人向けZoom商談→初成約を目指す</li>
+                            <li>個人向け広告導線も開始</li>
+                            <li>守成クラブでの関係構築強化</li>
                         </ul>
-                        <div class="phase-outcome"><span class="outcome-label">目標</span>広告導線の自動化完成、法人契約で安定収益</div>
-                        <div class="phase-progress" data-phase="2">
-                            <div class="progress-header"><span class="progress-label">達成率</span><span class="progress-percent">0%</span></div>
-                            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-                        </div>
-                        <div class="phase-toggle-hint" onclick="toggleTodos(2)">▼ To Doを開く</div>
-                        <div class="phase-todos" id="todos-2">
-                            <div class="phase-todos-inner">
-                                <div class="todo-item" data-phase="2" data-idx="0" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">個人向けLPを作成</div></div>
-                                <div class="todo-item" data-phase="2" data-idx="1" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">LINE公式アカウントの設定・アンケート分岐を構築</div></div>
-                                <div class="todo-item" data-phase="2" data-idx="2" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">法人向けオートウェビナーを制作</div></div>
-                                <div class="todo-item" data-phase="2" data-idx="3" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">個人向けオートウェビナーを制作</div></div>
-                                <div class="todo-item" data-phase="2" data-idx="4" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">Facebook/Instagram広告のクリエイティブを作成</div></div>
-                                <div class="todo-item" data-phase="2" data-idx="5" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">広告出稿を開始（少額テスト）</div></div>
-                                <div class="todo-item" data-phase="2" data-idx="6" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">法人向け個別相談（Zoom）の流れを整備</div></div>
-                                <div class="todo-item" data-phase="2" data-idx="7" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">ROAS計測・改善サイクルを回す</div></div>
-                                <div class="todo-item" data-phase="2" data-idx="8" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">法人契約1件目を成約する</div></div>
-                            </div>
+                        <div class="phase-outcome">
+                            <span class="outcome-label">達成指標</span>
+                            法人1〜2件成約 / ROAS 300%以上 / 月商100万円ライン
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="roadmap-phase">
-                <div class="roadmap-content phase-3">
+
+            <!-- Phase 3 -->
+            <div class="roadmap-phase phase-3">
+                <div class="roadmap-content">
                     <div class="phase-header">
                         <div class="phase-number">3</div>
-                        <div class="phase-title"><h3>沖縄AI支援No.1を取る</h3><span class="timing">Phase 3 - ローカル展開</span><br><span class="phase-period">3〜6ヶ月目</span></div>
+                        <div class="phase-title">
+                            <h3>AI組織構築＆事業スケール</h3>
+                            <span class="phase-period">7〜12ヶ月目</span>
+                        </div>
                     </div>
                     <div class="phase-body">
-                        <p>東京の3年遅れで届くAIブームに先行してポジションを確立。</p>
+                        <p>売上が安定したら、AI組織を本格構築。業務のAI移管を加速させる。</p>
                         <ul class="phase-tasks">
-                            <li>守成クラブで経営者との関係構築を深化</li>
-                            <li>AI研修・AI支援サービスを対面で提案</li>
-                            <li>「沖縄のAI教育といえばこの人」を確立</li>
-                            <li>オンライン事業×対面ローカル営業のハイブリッド</li>
+                            <li>AI中間管理職（部長AI）の設計・実装</li>
+                            <li>SNS運用・メール対応・顧客返信をAIに移管</li>
+                            <li>YouTubeコンテンツ自動展開ツール稼働</li>
+                            <li>広告ファネルの最適化（ROAS 500%目標）</li>
+                            <li>法人向け研修のリピート契約獲得</li>
                         </ul>
-                        <div class="phase-outcome"><span class="outcome-label">目標</span>沖縄AI支援市場のナンバーワンシェア獲得</div>
-                        <div class="phase-progress" data-phase="3">
-                            <div class="progress-header"><span class="progress-label">達成率</span><span class="progress-percent">0%</span></div>
-                            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-                        </div>
-                        <div class="phase-toggle-hint" onclick="toggleTodos(3)">▼ To Doを開く</div>
-                        <div class="phase-todos" id="todos-3">
-                            <div class="phase-todos-inner">
-                                <div class="todo-item" data-phase="3" data-idx="0" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">守成クラブで月1回の参加を継続する</div></div>
-                                <div class="todo-item" data-phase="3" data-idx="1" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">経営者50人以上と名刺交換・関係構築</div></div>
-                                <div class="todo-item" data-phase="3" data-idx="2" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">AI研修サービスの提案資料を作成</div></div>
-                                <div class="todo-item" data-phase="3" data-idx="3" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">沖縄の経営者向けにAI体験セミナーを開催</div></div>
-                                <div class="todo-item" data-phase="3" data-idx="4" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">対面AI研修の初回契約を獲得</div></div>
-                                <div class="todo-item" data-phase="3" data-idx="5" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">「沖縄 AI研修」で検索1位を目指すコンテンツ整備</div></div>
-                                <div class="todo-item" data-phase="3" data-idx="6" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">リピート・紹介の仕組みを作る</div></div>
-                            </div>
+                        <div class="phase-outcome">
+                            <span class="outcome-label">達成指標</span>
+                            月商300〜500万円 / AI業務移管5件以上 / 自分の稼働時間50%削減
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="roadmap-phase">
-                <div class="roadmap-content phase-4">
+
+            <!-- Phase 4 -->
+            <div class="roadmap-phase phase-4">
+                <div class="roadmap-content">
                     <div class="phase-header">
                         <div class="phase-number">4</div>
-                        <div class="phase-title"><h3>LMS SaaS事業の展開</h3><span class="timing">Phase 4 - スケール</span><br><span class="phase-period">6〜12ヶ月目</span></div>
+                        <div class="phase-title">
+                            <h3>LMS SaaS＆沖縄展開</h3>
+                            <span class="phase-period">13〜18ヶ月目</span>
+                        </div>
                     </div>
                     <div class="phase-body">
-                        <p>AI付きLMSのマルチテナント化を完了し、サブスクリプション型SaaSとして提供。</p>
+                        <p>LMSサブスクサービスをローンチし、沖縄ローカル法人営業を本格化。</p>
                         <ul class="phase-tasks">
-                            <li>マルチテナント化の開発完了</li>
-                            <li>インフルエンサー・企業向けに営業開始</li>
-                            <li>月額課金で仕組み化された収益源を確立</li>
-                            <li>全事業を仕組み化し、自分の時間を最小化</li>
+                            <li>LMS SaaS（マルチテナント）正式リリース</li>
+                            <li>インフルエンサー・企業へのSaaS営業</li>
+                            <li>沖縄AI支援ナンバーワン戦略の本格始動</li>
+                            <li>守成クラブ経由の法人契約拡大</li>
+                            <li>AI組織の完成度を高める（全業務カバー）</li>
                         </ul>
-                        <div class="phase-outcome"><span class="outcome-label">目標</span>年商1億円突破 — 仕組み化された事業体の完成</div>
-                        <div class="phase-progress" data-phase="4">
-                            <div class="progress-header"><span class="progress-label">達成率</span><span class="progress-percent">0%</span></div>
-                            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-                        </div>
-                        <div class="phase-toggle-hint" onclick="toggleTodos(4)">▼ To Doを開く</div>
-                        <div class="phase-todos" id="todos-4">
-                            <div class="phase-todos-inner">
-                                <div class="todo-item" data-phase="4" data-idx="0" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">LMSのマルチテナント設計を完了</div></div>
-                                <div class="todo-item" data-phase="4" data-idx="1" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">マルチテナント化の開発・実装</div></div>
-                                <div class="todo-item" data-phase="4" data-idx="2" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">テスト環境でのテナント分離テスト</div></div>
-                                <div class="todo-item" data-phase="4" data-idx="3" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">料金プラン・サブスク体系を決定</div></div>
-                                <div class="todo-item" data-phase="4" data-idx="4" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">LMS SaaSの営業用LP・資料を作成</div></div>
-                                <div class="todo-item" data-phase="4" data-idx="5" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">インフルエンサー・企業への営業開始</div></div>
-                                <div class="todo-item" data-phase="4" data-idx="6" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">SaaSの初テナント契約を獲得</div></div>
-                                <div class="todo-item" data-phase="4" data-idx="7" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">運用サポート体制を仕組み化</div></div>
-                            </div>
+                        <div class="phase-outcome">
+                            <span class="outcome-label">達成指標</span>
+                            LMS SaaS テナント10社以上 / 沖縄法人5社以上 / 月商700万円
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="roadmap-phase">
-                <div class="roadmap-content phase-5">
+
+            <!-- Phase 5 -->
+            <div class="roadmap-phase phase-5">
+                <div class="roadmap-content">
                     <div class="phase-header">
                         <div class="phase-number">5</div>
-                        <div class="phase-title"><h3>利益を資産に変える：高級リゾート民泊</h3><span class="timing">Phase 5 - 資産形成</span><br><span class="phase-period">1年目以降</span></div>
+                        <div class="phase-title">
+                            <h3>年商1億円到達＆資産形成</h3>
+                            <span class="phase-period">19〜24ヶ月目</span>
+                        </div>
                     </div>
                     <div class="phase-body">
-                        <p>AI事業で安定した利益を、沖縄の高級リゾート不動産に投資。キャッシュフロー型から資産形成型へ。</p>
+                        <p>全収益柱が回り始め、年商1億円を突破。利益を資産に転換するフェーズ。</p>
                         <ul class="phase-tasks">
-                            <li>沖縄オーシャンビューの物件リサーチ・選定</li>
-                            <li>高級志向のリゾート別荘を建設・取得</li>
-                            <li>民泊・ホテルとして運用開始</li>
-                            <li>不動産投資としてのキャッシュフロー確立</li>
+                            <li>4つの収益柱の安定運用（YouTube / 法人 / SaaS / ローカル）</li>
+                            <li>AI組織による完全自動運営体制</li>
+                            <li>高級リゾート民泊の物件調査・投資開始</li>
+                            <li>引き寄せの法則の発信活動スタート</li>
+                            <li>「みんなが自分らしく生きる」を体現する</li>
                         </ul>
-                        <div class="phase-outcome"><span class="outcome-label">目標</span>事業利益の資産化 — 二段構えの人生設計の実現</div>
-                        <div class="phase-progress" data-phase="5">
-                            <div class="progress-header"><span class="progress-label">達成率</span><span class="progress-percent">0%</span></div>
-                            <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
-                        </div>
-                        <div class="phase-toggle-hint" onclick="toggleTodos(5)">▼ To Doを開く</div>
-                        <div class="phase-todos" id="todos-5">
-                            <div class="phase-todos-inner">
-                                <div class="todo-item" data-phase="5" data-idx="0" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">AI事業の年間利益が安定したことを確認</div></div>
-                                <div class="todo-item" data-phase="5" data-idx="1" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">沖縄オーシャンビューのエリアを調査・選定</div></div>
-                                <div class="todo-item" data-phase="5" data-idx="2" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">不動産業者・建築会社との打ち合わせ</div></div>
-                                <div class="todo-item" data-phase="5" data-idx="3" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">物件の取得または建設を決定</div></div>
-                                <div class="todo-item" data-phase="5" data-idx="4" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">民泊許可・届出などの法的手続き</div></div>
-                                <div class="todo-item" data-phase="5" data-idx="5" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">高級リゾート物件の完成・取得</div></div>
-                                <div class="todo-item" data-phase="5" data-idx="6" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">民泊プラットフォームに掲載・運用開始</div></div>
-                                <div class="todo-item" data-phase="5" data-idx="7" onclick="toggleCheck(this)"><div class="todo-checkbox"></div><div class="todo-text">運用を仕組み化（管理委託or自動化）</div></div>
-                            </div>
+                        <div class="phase-outcome">
+                            <span class="outcome-label">達成指標</span>
+                            年商1億円突破 / 自分の稼働時間80%削減 / 資産形成フェーズへ移行
                         </div>
                     </div>
                 </div>
@@ -933,16 +786,17 @@
     </div>
 
     <div class="advice-footer">
-        <p>このBrain Mapは15個のObsidianメモから自動生成されました。<br>メモを追加・更新したら「マップを見せて」でいつでも最新版を生成できます。<br>✨ 理念：みんなが自分らしく生きられる環境を作る<br>🎯 年商1億円 → 🤖 AIオーケストレーション → 🏨 リゾート民泊 → 🔮 引き寄せの法則</p>
+        <p>Generated by Brain Map Skill &#8212; 16 memos analyzed from Obsidian Vault<br>
+        &#12300;みんなが自分らしく生きられる環境を作る&#12301; &#8212; あなたの理念がすべての中心にあります</p>
     </div>
 
     <div class="legend">
-        <div class="legend-item"><div class="legend-dot" style="background: #00d4aa;"></div> YouTube差別化戦略</div>
-        <div class="legend-item"><div class="legend-dot" style="background: #44ff88;"></div> 法人向け事業</div>
-        <div class="legend-item"><div class="legend-dot" style="background: #ff4444;"></div> 広告ファネル・LINE導線</div>
-        <div class="legend-item"><div class="legend-dot" style="background: #ffaa00;"></div> 沖縄AI支援No.1</div>
-        <div class="legend-item"><div class="legend-dot" style="background: #ff44ff;"></div> LMS SaaS事業</div>
-        <div class="legend-item"><div class="legend-dot" style="background: #00aaff;"></div> 高級リゾート民泊</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#00d4aa"></div> YouTube検証チャンネル</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#44ff88"></div> 法人向け事業</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ff4444"></div> 広告ファネル</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ffaa00"></div> AI組織＆自動化</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#ff44ff"></div> 理念＆マインド</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#00aaff"></div> 将来の展開</div>
     </div>
 
     <div class="overlay" onclick="hideDetail()"></div>
@@ -964,32 +818,32 @@
 
         const details = {
             central: {
-                title: '\uD83C\uDFAF 年商1億円突破',
-                content: '<div class="detail-section"><h3>大目標</h3><p>できる限り自分の時間を割かない仕組み化を使って、年商1億円を突破する。</p></div><div class="detail-section"><h3>4つの収益柱</h3><ul><li>YouTube \u00d7 検証チャンネル（個人向け導線）</li><li>法人向けオンラインスクール（広告経由）</li><li>LMS SaaS（仕組み化）</li><li>沖縄ローカル法人営業（守成クラブ経由）</li></ul></div><div class="detail-section"><h3>キーポイント</h3><ul><li>自分の時間を使わない＝自動化・仕組み化が必須</li><li>スケールできるビジネスモデルが必要</li><li>エッセンシャル思考で順番に実行</li><li>利益を不動産資産に変えていくビジョン</li></ul></div><div class="insight-box"><div class="label">INSIGHT</div><p>「仕組み化」というキーワードが全メモに貫かれている。広告ファネル、オートウェビナー、LMS SaaS — すべてが「自分の時間を使わない」に繋がる設計。</p></div><div class="detail-section"><h3>関連メモ</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'node1\')">🔬 YouTube戦略</span><span class="related-tag" onclick="showDetail(\'node2\')">🏢 法人事業</span><span class="related-tag" onclick="showDetail(\'node3\')">📣 広告ファネル</span><span class="related-tag" onclick="showDetail(\'node5\')">💻 LMS SaaS</span></div></div>'
+                title: '\u{1F3AF} \u5E74\u55461\u5104\u5186\u7A81\u7834',
+                content: '<div class="detail-section"><h3>\u76EE\u6A19</h3><p>\u3067\u304D\u308B\u9650\u308A\u81EA\u5206\u306E\u6642\u9593\u3092\u5272\u304B\u306A\u3044\u4ED5\u7D44\u307F\u5316\u3092\u4F7F\u3063\u3066\u3001\u5E74\u55461\u5104\u5186\u3092\u7A81\u7834\u3059\u308B\u3002</p></div><div class="detail-section"><h3>4\u3064\u306E\u53CE\u76CA\u67F1</h3><ul><li>YouTube \u00D7 \u691C\u8A3C\u30C1\u30E3\u30F3\u30CD\u30EB\uFF08\u500B\u4EBA\u5411\u3051\u5C0E\u7DDA\uFF09</li><li>\u6CD5\u4EBA\u5411\u3051\u30AA\u30F3\u30E9\u30A4\u30F3\u30B9\u30AF\u30FC\u30EB\uFF08\u5E83\u544A\u7D4C\u7531\uFF09</li><li>LMS SaaS\uFF08\u30B5\u30D6\u30B9\u30AF\u30EA\u30D7\u30B7\u30E7\u30F3\uFF09</li><li>\u6C96\u7E04\u30ED\u30FC\u30AB\u30EB\u6CD5\u4EBA\u55B6\u696D\uFF08\u5B88\u6210\u30AF\u30E9\u30D6\u7D4C\u7531\uFF09</li></ul></div><div class="insight-box"><div class="label">KEY INSIGHT</div><p>\u81EA\u52D5\u5316\u30FB\u4ED5\u7D44\u307F\u5316\u304C\u5FC5\u9808\u3002AI\u7D44\u7E54\u69CB\u60F3\u306B\u3088\u308A\u3001\u300C1\u4EBA\u3067\u4F1A\u793E\u3092\u56DE\u3059\u300D\u3053\u3068\u304C\u73FE\u5B9F\u7684\u306B\u306A\u308A\u3064\u3064\u3042\u308B\u3002</p></div><div class="detail-section"><h3>\u95A2\u9023\u30CE\u30FC\u30C9</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'node1\')">\u{1F52C} YouTube\u691C\u8A3Cch</span><span class="related-tag" onclick="showDetail(\'node2\')">\u{1F3E2} \u6CD5\u4EBA\u4E8B\u696D</span><span class="related-tag" onclick="showDetail(\'node4\')">\u{1F916} AI\u7D44\u7E54</span></div></div>'
             },
             node1: {
-                title: '\uD83D\uDD2C YouTube差別化戦略',
-                content: '<div class="detail-section"><h3>現状の課題</h3><ul><li>How toコンテンツが受けなくなってきている</li><li>AIに聞けば答えがすぐ出る時代</li><li>ExcelのHow toは特にChatGPTで即解決される</li></ul></div><div class="detail-section"><h3>採用するポジション</h3><p><strong>「AI\u00d7自動化を自分で徹底検証して、本当に使えるものだけ教えるチャンネル」</strong></p><ul><li>嘘がない — 「自分で検証した」は事実</li><li>競合がやっていない — 深い比較検証をやる人がいない</li><li>説明力が活きる — 17万人が証明するわかりやすさ</li><li>自動化の大量実践が活きる — 100個自動化した経験</li><li>法人にもつながる — 研修依頼の信頼材料</li><li>AIに代替されない — 複数ツールの実比較は人間にしかできない</li></ul></div><div class="detail-section"><h3>空白ポジション</h3><p>「わかりやすい \u00d7 深い検証」の領域は完全に空白。KEITO、mikimiki、さきは「紹介・速報」寄り。いけとも、AIでサボろうは「難しい」寄り。この空白を取る。</p></div><div class="detail-section"><h3>無料と有料の棲み分け</h3><ul><li>YouTube（無料）= 判断できるようになる（比較検証・結論）</li><li>有料スクール = 実践できるようになる（体系的カリキュラム・全手順）</li></ul></div><div class="detail-section"><h3>動画テーマ案</h3><ul><li>Claude in Excel vs Copilot、同じ作業をやらせて比較</li><li>ChatGPT vs Gemini vs Claude、Excel作業を任せるならどれが最強？</li><li>AI自動化を100個やった僕が選ぶ、本当に使える自動化10選</li><li>「結局どのAIを使えばいいの？」用途別に完全整理</li></ul></div><div class="detail-section"><h3>サムネイルの方向性</h3><p>❌「VLOOKUP完全解説」→ ⭕「Excelマスターが今さらVLOOKUP使わない理由」「AIにExcel任せたら仕事が消えた話」</p></div><div class="detail-section"><h3>理念</h3><p>誰かを助ける、誰かの人生を変えるぐらいの理念を持つ。再生数を追いかけるのではなく、自分も楽しみながらできるYouTubeを目指す。</p></div><div class="insight-box"><div class="label">INSIGHT</div><p>法人で稼げればYouTubeは「再生数を気にせず理念ベースで発信」できる。これが検証ポジションの持続性を支える。</p></div><div class="detail-section"><h3>関連ノード</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'central\')">🎯 年商1億円</span><span class="related-tag" onclick="showDetail(\'node2\')">🏢 法人事業</span><span class="related-tag" onclick="showDetail(\'node3\')">📣 広告ファネル</span></div></div>'
+                title: '\u{1F52C} YouTube\u691C\u8A3C\u30C1\u30E3\u30F3\u30CD\u30EB\u6226\u7565',
+                content: '<div class="detail-section"><h3>\u30DD\u30B8\u30B7\u30E7\u30CB\u30F3\u30B0</h3><p>\u300CAI\u00D7\u81EA\u52D5\u5316\u3092\u81EA\u5206\u3067\u5FB9\u5E95\u691C\u8A3C\u3057\u3066\u3001\u672C\u5F53\u306B\u4F7F\u3048\u308B\u3082\u306E\u3060\u3051\u6559\u3048\u308B\u30C1\u30E3\u30F3\u30CD\u30EB\u300D</p><p>\u300C\u308F\u304B\u308A\u3084\u3059\u3044 \u00D7 \u6DF1\u3044\u691C\u8A3C\u300D\u306E\u30DD\u30B8\u30B7\u30E7\u30F3\u304C\u5B8C\u5168\u306B\u7A7A\u767D\u3002</p></div><div class="detail-section"><h3>\u306A\u305CHow to\u304B\u3089\u8EE2\u63DB\u3059\u308B\u306E\u304B</h3><ul><li>AI\u306B\u805E\u3051\u3070\u7B54\u3048\u304C\u51FA\u308B\u6642\u4EE3\u3001How to\u306F\u30B3\u30E2\u30C7\u30A3\u30C6\u30A3\u5316</li><li>\u300CWhat\u300D\u300CHow\u300D\u3067\u306F\u306A\u304F\u300CWhy\u300D\u300CWho\u300D\u3067\u52DD\u8CA0</li><li>\u300C\u3053\u306E\u4EBA\u304B\u3089\u5B66\u3073\u305F\u3044\u300D\u3068\u601D\u308F\u305B\u308B\u30D6\u30E9\u30F3\u30C7\u30A3\u30F3\u30B0</li></ul></div><div class="detail-section"><h3>\u52D5\u753B\u30C6\u30FC\u30DE\u6848</h3><ul><li>Claude vs Copilot\u3001Excel\u4F5C\u696D\u3067\u6BD4\u8F03</li><li>ChatGPT vs Gemini vs Claude\u3001\u4ED5\u4E8B\u3067\u4F7F\u3046\u306A\u3089\u3069\u308C\u304C\u6700\u5F37\uFF1F</li><li>AI\u81EA\u52D5\u5316\u3092100\u500B\u3084\u3063\u305F\u50D5\u304C\u9078\u3076\u3001\u672C\u5F53\u306B\u4F7F\u3048\u308B10\u9078</li><li>Dify vs n8n vs Power Automate\u3001\u6CD5\u4EBA\u3067\u4F7F\u3046\u306A\u3089\u3069\u308C\uFF1F</li></ul></div><div class="detail-section"><h3>\u7121\u6599 vs \u6709\u6599\u306E\u68F2\u307F\u5206\u3051</h3><ul><li>YouTube\uFF08\u7121\u6599\uFF09= \u5224\u65AD\u3067\u304D\u308B\u3088\u3046\u306B\u306A\u308B</li><li>\u30AA\u30F3\u30E9\u30A4\u30F3\u30B9\u30AF\u30FC\u30EB\uFF08\u6709\u6599\uFF09= \u5B9F\u8DF5\u3067\u304D\u308B\u3088\u3046\u306B\u306A\u308B</li></ul></div><div class="detail-section"><h3>\u7AF6\u5408\u3068\u306E\u5DEE\u5225\u5316</h3><ul><li>KEITO: \u300C\u65B0\u3057\u3044AI\u51FA\u305F\uFF01\u7D39\u4ECB\u3057\u307E\u3059\u300D</li><li>mikimiki: \u300C\u3053\u306E\u30C4\u30FC\u30EB\u3001\u3053\u3046\u4F7F\u3044\u307E\u3059\u300D</li><li>\u30E1\u30F3\u30BF\u30A8\u30AF\u30BB\u30EB: \u300C\u5168\u90E8\u81EA\u5206\u3067\u8A66\u3057\u305F\u3002\u672C\u5F53\u306B\u4F7F\u3048\u308B\u306E\u306F\u3053\u308C\u300D</li></ul></div><div class="detail-section"><h3>\u95A2\u9023\u30CE\u30FC\u30C9</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'central\')">\u{1F3AF} \u5E74\u55461\u5104\u5186</span><span class="related-tag" onclick="showDetail(\'node5\')">\u{1F4A1} \u7406\u5FF5</span><span class="related-tag" onclick="showDetail(\'node2\')">\u{1F3E2} \u6CD5\u4EBA\u4E8B\u696D</span></div></div>'
             },
             node2: {
-                title: '\uD83C\uDFE2 法人向けオンラインスクール',
-                content: '<div class="detail-section"><h3>結論</h3><p><strong>法人向け広告を先にやる方が利益が立つ可能性が高い。</strong></p></div><div class="detail-section"><h3>数字で比較</h3><ul><li>法人向け単価：30〜100万円（個人向け：5〜10万円）</li><li>広告費回収に必要な成約数：法人1〜2件（個人10〜20件）</li><li>LTV：法人は年間契約・更新あり</li></ul></div><div class="detail-section"><h3>YouTubeとの導線分離</h3><ul><li>YouTube → 個人（現場の人）→ LINE → 個人向け講座</li><li>広告 → 法人（決裁者）→ LP → 個別相談 → 法人契約</li></ul><p>ターゲットが違うので導線を分ける。YouTubeの視聴者は現場の人、法人の決裁者は経営者・人事。</p></div><div class="detail-section"><h3>この戦略のメリット</h3><p>法人で利益が立てば、YouTubeを「好きにやれる」。再生数を気にせず理念ベースのコンテンツが作れる。広告収益に依存しなくていい。</p></div><div class="detail-section"><h3>具体的アクション</h3><ul><li>LP作成 — 「社員のExcel・AI研修」の切り口</li><li>広告出稿 — Facebook/Instagram（経営者・人事向け）</li><li>個別相談 — Zoom商談で成約</li></ul></div><div class="insight-box"><div class="label">INSIGHT</div><p>「1件取れれば黒字」の構造が法人向けの最大の強み。広告費100万円でも1〜2件で回収可能。</p></div><div class="detail-section"><h3>関連ノード</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'central\')">🎯 年商1億円</span><span class="related-tag" onclick="showDetail(\'node1\')">🔬 YouTube戦略</span><span class="related-tag" onclick="showDetail(\'node3\')">📣 広告ファネル</span><span class="related-tag" onclick="showDetail(\'node4\')">🌺 沖縄AI支援</span></div></div>'
+                title: '\u{1F3E2} \u6CD5\u4EBA\u5411\u3051\u4E8B\u696D',
+                content: '<div class="detail-section"><h3>\u306A\u305C\u6CD5\u4EBA\u5411\u3051\u3092\u5148\u306B\u3084\u308B\u306E\u304B</h3><ul><li>\u5358\u4FA130\u301C100\u4E07\u5186 \u2192 \u5E83\u544A\u8CBB100\u4E07\u3067\u30821-2\u4EF6\u3067\u56DE\u53CE</li><li>\u300C1\u4EF6\u53D6\u308C\u308C\u3070\u9ED2\u5B57\u300D\u306E\u69CB\u9020\u304C\u4F5C\u308C\u308B</li><li>\u3059\u3067\u306B\u5546\u54C1\uFF08\u30AA\u30F3\u30E9\u30A4\u30F3\u30B9\u30AF\u30FC\u30EB\uFF09\u304C\u3042\u308B</li></ul></div><div class="detail-section"><h3>Power Automate\u306E\u512A\u4F4D\u6027</h3><ul><li>\u4F01\u696D\u4F7F\u7528\u7387\u30C8\u30C3\u30D7\uFF08\u7D048.5%\uFF09</li><li>Microsoft 365\u5C0E\u5165\u6E08\u307F\u4F01\u696D\u306A\u3089\u8FFD\u52A0\u30B3\u30B9\u30C8\u306A\u3057</li><li>Dify\u3001n8n\u63A8\u3057\u306E\u30A4\u30F3\u30D5\u30EB\u30A8\u30F3\u30B5\u30FC\u306F\u591A\u3044\u304C\u3001\u6CD5\u4EBA\u73FE\u5834\u3067\u306F\u5C11\u6570\u6D3E</li></ul></div><div class="detail-section"><h3>\u6C96\u7E04AI\u652F\u63F4\u30CA\u30F3\u30D0\u30FC\u30EF\u30F3\u6226\u7565</h3><ul><li>\u6771\u4EAC\u306EAI\u30D6\u30FC\u30E0\u304C3\u5E74\u9045\u308C\u3067\u6C96\u7E04\u306B\u5C4A\u304F</li><li>\u5B88\u6210\u30AF\u30E9\u30D6\u3067300\u4EBA\u306E\u7D4C\u55B6\u8005\u306B\u30EA\u30FC\u30C1\u53EF\u80FD</li><li>\u5BFE\u9762\u55B6\u696D\u00D7\u30AA\u30F3\u30E9\u30A4\u30F3\u8B1B\u5EA7\u306E\u30CF\u30A4\u30D6\u30EA\u30C3\u30C9</li></ul></div><div class="detail-section"><h3>\u5C0E\u7DDA\u8A2D\u8A08</h3><p>YouTube\u306E\u8996\u8074\u8005\uFF08\u73FE\u5834\u306E\u4EBA\uFF09\u3068\u6CD5\u4EBA\u306E\u6C7A\u88C1\u8005\u306F\u30BF\u30FC\u30B2\u30C3\u30C8\u304C\u9055\u3046\u306E\u3067\u5C0E\u7DDA\u3092\u5206\u3051\u308B\u3002</p><ul><li>YouTube \u2192 LINE \u2192 \u500B\u4EBA\u5411\u3051\u8B1B\u5EA7</li><li>\u5E83\u544A \u2192 LP \u2192 \u500B\u5225\u76F8\u8AC7 \u2192 \u6CD5\u4EBA\u5951\u7D04</li></ul></div><div class="detail-section"><h3>\u95A2\u9023\u30CE\u30FC\u30C9</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'central\')">\u{1F3AF} \u5E74\u55461\u5104\u5186</span><span class="related-tag" onclick="showDetail(\'node3\')">\u{1F4E3} \u5E83\u544A\u30D5\u30A1\u30CD\u30EB</span><span class="related-tag" onclick="showDetail(\'node1\')">\u{1F52C} YouTube</span></div></div>'
             },
             node3: {
-                title: '\uD83D\uDCE3 広告ファネル＋LINE導線設計',
-                content: '<div class="detail-section"><h3>コンセプト</h3><p>YouTubeとは別軸で、広告を作り込んで集客する。YouTube=ブランディング・信頼構築、広告=直接的な集客・販売。</p></div><div class="detail-section"><h3>目標ROAS</h3><p><strong>300%〜500%</strong> — 広告費100万円→売上300万〜500万円</p></div><div class="detail-section"><h3>導線設計</h3><p>広告 → LINE登録 → アンケート（条件分岐）→ 法人/個人それぞれのコンテンツ配信 → オートウェビナー → 法人は個別相談、個人は講座販売ページ</p></div><div class="detail-section"><h3>LINEアンケートの分岐</h3><ul><li>立場 — 経営者/管理職/一般社員/フリーランス</li><li>職種 — 事務/営業/IT/その他</li><li>興味のある分野 — AI活用/Excel・業務効率化/自動化ツール</li></ul></div><div class="detail-section"><h3>法人向け導線</h3><ul><li>Facebook/Instagram広告（経営者・人事向け）</li><li>LINE登録→アンケートで法人判定</li><li>法人向けコンテンツ配信（社員教育の課題、AI導入事例）</li><li>オートウェビナー（社員のAIスキルを底上げする方法）</li><li>個別相談（Zoom）→ 法人向け社員研修（30〜100万円）</li></ul></div><div class="detail-section"><h3>個人向け導線</h3><ul><li>YouTube/Instagram広告（個人向け）</li><li>個人向けコンテンツ配信（スキルアップ系）</li><li>オートウェビナー（AIで業務を自動化する実践講座）</li><li>個人向けオンライン講座（5〜10万円）</li></ul></div><div class="insight-box"><div class="label">INSIGHT</div><p>1つの広告導線から法人・個人両方に対応できるのが設計の妙。オートウェビナーで自分の時間を使わずに販売できる。</p></div><div class="detail-section"><h3>関連ノード</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'node2\')">🏢 法人事業</span><span class="related-tag" onclick="showDetail(\'central\')">🎯 年商1億円</span><span class="related-tag" onclick="showDetail(\'node4\')">🌺 沖縄AI支援</span></div></div>'
+                title: '\u{1F4E3} \u5E83\u544A\u6226\u7565\uFF06LINE\u5C0E\u7DDA\u8A2D\u8A08',
+                content: '<div class="detail-section"><h3>\u30B3\u30F3\u30BB\u30D7\u30C8</h3><p>YouTube\u3068\u306F\u5225\u8EF8\u3067\u3001\u5E83\u544A\u3092\u4F5C\u308A\u8FBC\u3093\u3067\u96C6\u5BA2\u3059\u308B\u3002YouTube\u306F\u30D6\u30E9\u30F3\u30C7\u30A3\u30F3\u30B0\u3001\u5E83\u544A\u306F\u76F4\u63A5\u7684\u306A\u96C6\u5BA2\u30FB\u8CA9\u58F2\u3002</p></div><div class="detail-section"><h3>\u76EE\u6A19ROAS</h3><p>300%\u301C500%\uFF08\u5E83\u544A\u8CBB100\u4E07 \u2192 \u58F2\u4E0A300\u301C500\u4E07\uFF09</p></div><div class="detail-section"><h3>\u5C0E\u7DDA\u30D5\u30ED\u30FC</h3><ul><li>\u5E83\u544A\uFF08\u6CD5\u4EBA/\u500B\u4EBA\uFF09\u2192 LINE\u767B\u9332</li><li>\u30A2\u30F3\u30B1\u30FC\u30C8\u3067\u81EA\u52D5\u5206\u5C90\uFF08\u7ACB\u5834\u30FB\u8077\u7A2E\u30FB\u8208\u5473\uFF09</li><li>\u6CD5\u4EBA: \u30B3\u30F3\u30C6\u30F3\u30C4\u914D\u4FE1 \u2192 \u30AA\u30FC\u30C8\u30A6\u30A7\u30D3\u30CA\u30FC \u2192 Zoom\u5546\u8AC7</li><li>\u500B\u4EBA: \u30B3\u30F3\u30C6\u30F3\u30C4\u914D\u4FE1 \u2192 \u30AA\u30FC\u30C8\u30A6\u30A7\u30D3\u30CA\u30FC \u2192 \u8B1B\u5EA7\u8CA9\u58F2</li></ul></div><div class="detail-section"><h3>\u30DD\u30A4\u30F3\u30C8</h3><ul><li>\u30AA\u30FC\u30C8\u30A6\u30A7\u30D3\u30CA\u30FC\u3067\u81EA\u5206\u306E\u6642\u9593\u3092\u4F7F\u308F\u305A\u306B\u8CA9\u58F2</li><li>\u500B\u5225\u76F8\u8AC7\u306F\u6CD5\u4EBA\u5411\u3051\u306E\u307F\uFF08\u5358\u4FA1\u304C\u9AD8\u3044\u304B\u3089\u624B\u9593\u3092\u304B\u3051\u308B\u4FA1\u5024\u3042\u308A\uFF09</li></ul></div><div class="detail-section"><h3>\u95A2\u9023\u30CE\u30FC\u30C9</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'node2\')">\u{1F3E2} \u6CD5\u4EBA\u4E8B\u696D</span><span class="related-tag" onclick="showDetail(\'node4\')">\u{1F916} AI\u7D44\u7E54</span><span class="related-tag" onclick="showDetail(\'central\')">\u{1F3AF} \u5E74\u55461\u5104\u5186</span></div></div>'
             },
             node4: {
-                title: '\uD83C\uDF3A 沖縄AI支援ナンバーワン戦略',
-                content: '<div class="detail-section"><h3>コンセプト</h3><p><strong>沖縄でAI支援（AI教育・社員教育）のナンバーワンシェアを取る</strong></p></div><div class="detail-section"><h3>背景</h3><ul><li>東京で流行ったことが約3年遅れで沖縄に届く</li><li>今の東京のAIブームが届くタイミングで先にポジションを取れる</li><li>「沖縄にいる」ことが逆に地の利になる</li></ul></div><div class="detail-section"><h3>既存の資産</h3><ul><li>守成クラブに所属（会社代表者が月1回集まる場）</li><li>名刺交換で約300人の経営者にリーチ可能</li><li>関係構築しながらサービスを販売できる導線がすでにある</li></ul></div><div class="detail-section"><h3>やること</h3><ul><li>守成クラブでの関係構築→AI研修・AI支援サービスの提案</li><li>「沖縄のAI教育といえばこの人」というポジション確立</li><li>法人向けオンラインスクール戦略との連携（対面+オンライン）</li></ul></div><div class="detail-section"><h3>エッセンシャル思考</h3><p>まずYouTube検証チャンネルと法人向け事業の立ち上げが先。沖縄ナンバーワン戦略は法人事業が軌道に乗った後に本格化。焦って同時並行しない。</p></div><div class="detail-section"><h3>収益柱としての位置づけ</h3><p>4本目の柱：沖縄ローカル法人営業（守成クラブ経由）</p></div><div class="insight-box"><div class="label">INSIGHT</div><p>物理的な距離が参入障壁になる。東京のインフルエンサーが沖縄の中小企業に営業するのは非効率。この構造的優位性が守成クラブと組み合わさる。</p></div><div class="detail-section"><h3>関連ノード</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'node2\')">🏢 法人事業</span><span class="related-tag" onclick="showDetail(\'central\')">🎯 年商1億円</span><span class="related-tag" onclick="showDetail(\'node6\')">🏨 リゾート民泊</span></div></div>'
+                title: '\u{1F916} AI\u7D44\u7E54\u69CB\u60F3\uFF06\u30AA\u30FC\u30B1\u30B9\u30C8\u30EC\u30FC\u30B7\u30E7\u30F3',
+                content: '<div class="detail-section"><h3>\u30D3\u30B8\u30E7\u30F3</h3><p>\u4EBA\u9593\u306F\u81EA\u5206\uFF08\u4EE3\u8868\uFF09\u3060\u3051\u3002\u305D\u306E\u4E0B\u306BAI\u304C\u968E\u5C64\u7684\u306B\u52D5\u304F\u4F53\u5236\u3092\u76EE\u6307\u3059\u3002</p></div><div class="detail-section"><h3>\u7D44\u7E54\u69CB\u9020</h3><ul><li>\u4EE3\u8868\uFF08\u81EA\u5206\uFF09</li><li>\u2514\u2500 \u7BA1\u7406\u8005\uFF08\u4EBA\u9593 or \u4E0A\u4F4DAI\uFF09</li><li>\u3000\u3000\u2514\u2500 AI\u4E2D\u9593\u7BA1\u7406\u8077\uFF08\u5224\u65AD\u30FB\u632F\u308A\u5206\u3051\uFF09</li><li>\u3000\u3000\u3000\u3000\u2514\u2500 \u4F5C\u696DAI\uFF08\u5B9F\u884C\u90E8\u968A\uFF09</li></ul></div><div class="detail-section"><h3>AI\u306B\u4EFB\u305B\u305F\u3044\u696D\u52D9</h3><ul><li>SNS\u904B\u7528\uFF08\u6295\u7A3F\u4F5C\u6210\u30FB\u30B9\u30B1\u30B8\u30E5\u30FC\u30EB\u7BA1\u7406\uFF09</li><li>\u9867\u5BA2\u3078\u306E\u8FD4\u4FE1\uFF08LINE\u30FB\u30E1\u30FC\u30EB\u30FBDM\uFF09</li><li>\u30E1\u30FC\u30EB\u30C1\u30A7\u30C3\u30AF\uFF08\u91CD\u8981\u5EA6\u5224\u5B9A\u30FB\u8981\u7D04\u30FB\u8FD4\u4FE1\u4E0B\u66F8\u304D\uFF09</li><li>\u30B3\u30F3\u30C6\u30F3\u30C4\u5236\u4F5C\uFF08\u30D6\u30ED\u30B0\u30FBYouTube\u53F0\u672C\u30FB\u5E83\u544A\u30B3\u30D4\u30FC\uFF09</li><li>\u30C7\u30FC\u30BF\u5206\u6790\uFF08\u58F2\u4E0A\u30FB\u5E83\u544A\u52B9\u679C\u30FB\u9867\u5BA2\u52D5\u5411\uFF09</li></ul></div><div class="detail-section"><h3>\u5B9F\u88C5\u65B9\u6CD5</h3><ul><li>Claude Code\u306ESkills\u6A5F\u80FD\u3067\u5C02\u9580AI\u3092\u5B9A\u7FA9</li><li>Power Automate / n8n\u3067\u30D5\u30ED\u30FC\u81EA\u52D5\u5316</li><li>YouTube\u30B3\u30F3\u30C6\u30F3\u30C4\u81EA\u52D5\u5C55\u958B\u30C4\u30FC\u30EB</li></ul></div><div class="insight-box"><div class="label">KEY INSIGHT</div><p>AI\u7D44\u7E54\u306F\u300C\u30A8\u30C3\u30BB\u30F3\u30B7\u30E3\u30EB\u601D\u8003\u306B\u53CD\u3059\u308B\u540C\u6642\u4E26\u884C\u300D\u3067\u306F\u306A\u304F\u3001\u300C\u540C\u6642\u4E26\u884C\u3092\u53EF\u80FD\u306B\u3059\u308B\u57FA\u76E4\u300D\u3002\u305F\u3060\u3057\u3001\u307E\u305A\u58F2\u4E0A\u304C\u7ACB\u3064\u4ED5\u7D44\u307F\u3092\u5148\u306B\u4F5C\u308B\u3053\u3068\u3002</p></div><div class="detail-section"><h3>\u95A2\u9023\u30CE\u30FC\u30C9</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'central\')">\u{1F3AF} \u5E74\u55461\u5104\u5186</span><span class="related-tag" onclick="showDetail(\'node3\')">\u{1F4E3} \u5E83\u544A\u30D5\u30A1\u30CD\u30EB</span><span class="related-tag" onclick="showDetail(\'node6\')">\u{1F680} \u5C06\u6765\u306E\u5C55\u958B</span></div></div>'
             },
             node5: {
-                title: '\uD83D\uDCBB LMS SaaS事業',
-                content: '<div class="detail-section"><h3>概要</h3><p>AI付きLMSサイトをマルチテナント化し、サブスクリプション形式で提供する新規事業。</p></div><div class="detail-section"><h3>ターゲット</h3><ul><li>講座を開設したいインフルエンサー</li><li>オンライン教育を始めたい個人・企業</li></ul></div><div class="detail-section"><h3>サービス内容</h3><ul><li>LMS（Learning Management System）サイトをSaaS形式で提供</li><li>各テナントごとに独立したLMS環境を提供</li><li>AI機能付き</li></ul></div><div class="detail-section"><h3>ベース</h3><p>新マスタープラン講座サイト（自社で運用中のAI付きLMS）をベースに、マルチテナント化を開発中。</p></div><div class="detail-section"><h3>ビジネスモデル</h3><p>サブスクリプション（月額課金）形式。複数テナントを抱えてサービス提供。仕組み化された収益源。</p></div><div class="insight-box"><div class="label">INSIGHT</div><p>SaaS型は「自分の時間を使わない仕組み化」の究極形。開発完了後は自動で収益が入る構造。年商1億円の要。</p></div><div class="detail-section"><h3>関連ノード</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'central\')">🎯 年商1億円</span><span class="related-tag" onclick="showDetail(\'node2\')">🏢 法人事業</span></div></div>'
+                title: '\u{1F4A1} \u7406\u5FF5\uFF06\u30DE\u30A4\u30F3\u30C9',
+                content: '<div class="detail-section"><h3>\u7406\u5FF5</h3><p>\u300C\u307F\u3093\u306A\u304C\u81EA\u5206\u3089\u3057\u304F\u751F\u304D\u3089\u308C\u308B\u74B0\u5883\u3092\u4F5C\u308B\u300D</p></div><div class="detail-section"><h3>\u7406\u5FF5\u3068\u4E8B\u696D\u306E\u3064\u306A\u304C\u308A</h3><ul><li>\u81EA\u52D5\u5316 = \u7121\u99C4\u306A\u4F5C\u696D\u304B\u3089\u306E\u89E3\u653E = \u4EBA\u751F\u306E\u6642\u9593\u3092\u53D6\u308A\u623B\u3059\uFF08\u7269\u7406\u7684\u89E3\u653E\uFF09</li><li>\u5F15\u304D\u5BC4\u305B\u306E\u6CD5\u5247 = \u30DE\u30A4\u30F3\u30C9\u3092\u5909\u3048\u308B\uFF08\u7CBE\u795E\u7684\u89E3\u653E\uFF09</li><li>\u4E21\u65B9\u63C3\u3063\u3066\u300C\u81EA\u5206\u3089\u3057\u304F\u751F\u304D\u308B\u300D\u304C\u5B8C\u6210</li></ul></div><div class="detail-section"><h3>YouTube\u3078\u306E\u53CD\u6620</h3><ul><li>\u518D\u751F\u6570\u3092\u8FFD\u3044\u304B\u3051\u308B\u306E\u3067\u306F\u306A\u304F\u7406\u5FF5\u30D9\u30FC\u30B9\u3067\u767A\u4FE1</li><li>\u300C\u4F5C\u696D\u6642\u9593\u304C\u25CB\u6642\u9593\u6E1B\u3063\u305F\u300D\u2192\u300C\u305D\u306E\u6642\u9593\u3067\u4F55\u304C\u3067\u304D\u308B\u304B\u300D\u307E\u3067\u8A00\u53CA</li><li>\u691C\u8A3C\u30C1\u30E3\u30F3\u30CD\u30EB\u3068\u306E\u76F8\u6027\u25CE\uFF1A\u300C\u672C\u5F53\u306B\u6642\u9593\u304C\u623B\u3063\u3066\u304F\u308B\u306E\u304B\u300D\u3092\u8A3C\u660E\u3059\u308B\u5834</li></ul></div><div class="detail-section"><h3>\u6CD5\u4EBA\u4E8B\u696D\u3078\u306E\u53CD\u6620</h3><p>\u300C\u793E\u54E1\u304C\u81EA\u5206\u3089\u3057\u304F\u50CD\u3051\u308B\u74B0\u5883\u3065\u304F\u308A\u300D\u3068\u3057\u3066\u6CD5\u4EBA\u7814\u4FEE\u3092\u63D0\u6848\u3002\u5358\u306A\u308B\u30B9\u30AD\u30EB\u7814\u4FEE\u3067\u306F\u306A\u304F\u3001\u7406\u5FF5\u306B\u57FA\u3065\u3044\u305F\u63D0\u6848\u306B\u306A\u308B\u3002</p></div><div class="detail-section"><h3>\u95A2\u9023\u30CE\u30FC\u30C9</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'node1\')">\u{1F52C} YouTube</span><span class="related-tag" onclick="showDetail(\'node2\')">\u{1F3E2} \u6CD5\u4EBA\u4E8B\u696D</span><span class="related-tag" onclick="showDetail(\'node6\')">\u{1F680} \u5C06\u6765\u306E\u5C55\u958B</span></div></div>'
             },
             node6: {
-                title: '\uD83C\uDFE8 高級リゾート民泊ビジネス構想',
-                content: '<div class="detail-section"><h3>コンセプト</h3><p><strong>沖縄の海が見える高級リゾート物件を作り、民泊・ホテルとして貸し出す</strong></p><ul><li>高級志向のリゾート（安宿ではない）</li><li>沖縄\u00d7オーシャンビュー\u00d7綺麗な物件</li><li>別荘を作って民泊で運用するスタイル</li></ul></div><div class="detail-section"><h3>背景・モチベーション</h3><ul><li>もともとリゾートが大好き</li><li>過去に民泊の運営経験あり</li><li>不動産投資に近い位置づけ</li></ul></div><div class="detail-section"><h3>位置づけ</h3><p><strong>事業利益を「資産」に変えていくフェーズ</strong></p><ul><li>AI事業（YouTube・法人研修・LMS SaaS）で稼いだ利益を不動産に投資</li><li>キャッシュフロー型ビジネス→資産形成型ビジネスへの展開</li><li>今すぐではなく、AI事業が軌道に乗った後のステップ</li></ul></div><div class="detail-section"><h3>優先順位（エッセンシャル思考）</h3><ul><li>まずAI事業で年商1億円を目指す</li><li>利益が安定したら不動産投資に着手</li><li>焦って同時並行しない</li></ul></div><div class="insight-box"><div class="label">INSIGHT</div><p>このビジョンがあることで、AI事業を頑張るモチベーションにもなっている。「何のために稼ぐか」の答えが明確。</p></div><div class="detail-section"><h3>関連ノード</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'central\')">🎯 年商1億円</span><span class="related-tag" onclick="showDetail(\'node4\')">🌺 沖縄AI支援</span></div></div>'
+                title: '\u{1F680} \u5C06\u6765\u306E\u5C55\u958B',
+                content: '<div class="detail-section"><h3>LMS SaaS\uFF08\u30B5\u30D6\u30B9\u30AF\u30EA\u30D7\u30B7\u30E7\u30F3\uFF09</h3><ul><li>AI\u4ED8\u304DLMS\u30B5\u30A4\u30C8\u3092\u30DE\u30EB\u30C1\u30C6\u30CA\u30F3\u30C8\u5316</li><li>\u30BF\u30FC\u30B2\u30C3\u30C8\uFF1A\u8B1B\u5EA7\u3092\u958B\u8A2D\u3057\u305F\u3044\u30A4\u30F3\u30D5\u30EB\u30A8\u30F3\u30B5\u30FC\u30FB\u4F01\u696D</li><li>\u65B0\u30DE\u30B9\u30BF\u30FC\u30D7\u30E9\u30F3\u8B1B\u5EA7\u30B5\u30A4\u30C8\u3092\u30D9\u30FC\u30B9\u306B\u958B\u767A\u4E2D</li><li>\u6708\u984D\u8AB2\u91D1\u30E2\u30C7\u30EB\u3067\u30B9\u30B1\u30FC\u30EB\u3057\u3084\u3059\u3044</li></ul></div><div class="detail-section"><h3>\u9AD8\u7D1A\u30EA\u30BE\u30FC\u30C8\u6C11\u6CCA\u30D3\u30B8\u30CD\u30B9</h3><ul><li>\u6C96\u7E04\u306E\u6D77\u304C\u898B\u3048\u308B\u9AD8\u7D1A\u30EA\u30BE\u30FC\u30C8\u7269\u4EF6\u3092\u6C11\u6CCA\u904B\u7528</li><li>AI\u4E8B\u696D\u306E\u5229\u76CA\u3092\u4E0D\u52D5\u7523\u3067\u8CC7\u7523\u5316</li><li>\u30AD\u30E3\u30C3\u30B7\u30E5\u30D5\u30ED\u30FC\u578B \u2192 \u8CC7\u7523\u5F62\u6210\u578B\u3078\u306E\u5C55\u958B</li><li>\u512A\u5148\u9806\u4F4D\uFF1AAI\u4E8B\u696D\u304C\u8ECC\u9053\u306B\u4E57\u3063\u305F\u5F8C</li></ul></div><div class="detail-section"><h3>\u5F15\u304D\u5BC4\u305B\u306E\u6CD5\u5247\u306E\u767A\u4FE1</h3><ul><li>\u30B9\u30D4\u30EA\u30C1\u30E5\u30A2\u30EB\u7684\u30A2\u30D7\u30ED\u30FC\u30C1\u3067\u5922\u3092\u53F6\u3048\u308B\u4EBA\u3092\u5897\u3084\u3059</li><li>\u65E2\u5B58\u306EAI\u4E8B\u696D\u30ED\u30FC\u30C9\u30DE\u30C3\u30D7\u3068\u306F\u5225\u67A0</li><li>\u30E9\u30A4\u30D5\u30EF\u30FC\u30AF\u3068\u3057\u3066\u5E73\u884C\u7DDA\u3067\u8D70\u3089\u305B\u308B</li></ul></div><div class="detail-section"><h3>\u95A2\u9023\u30CE\u30FC\u30C9</h3><div class="related-nodes"><span class="related-tag" onclick="showDetail(\'central\')">\u{1F3AF} \u5E74\u55461\u5104\u5186</span><span class="related-tag" onclick="showDetail(\'node5\')">\u{1F4A1} \u7406\u5FF5</span><span class="related-tag" onclick="showDetail(\'node4\')">\u{1F916} AI\u7D44\u7E54</span></div></div>'
             }
         };
 
@@ -1007,61 +861,6 @@
             document.querySelector('.overlay').classList.remove('active');
         }
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideDetail(); });
-
-        // === To Do チェックリスト機能 ===
-        function getCheckedState() {
-            try {
-                return JSON.parse(localStorage.getItem('brainmap-todos') || '{}');
-            } catch(e) { return {}; }
-        }
-        function saveCheckedState(state) {
-            localStorage.setItem('brainmap-todos', JSON.stringify(state));
-        }
-
-        function toggleCheck(el) {
-            el.classList.toggle('checked');
-            const phase = el.dataset.phase;
-            const idx = el.dataset.idx;
-            const state = getCheckedState();
-            const key = 'p' + phase + '_' + idx;
-            state[key] = el.classList.contains('checked');
-            saveCheckedState(state);
-            updateProgress(phase);
-        }
-
-        function toggleTodos(phase) {
-            const container = document.getElementById('todos-' + phase);
-            const hint = container.previousElementSibling;
-            const isOpen = container.classList.toggle('open');
-            hint.classList.toggle('open', isOpen);
-            hint.textContent = isOpen ? '\u25B2 To Do\u3092\u9589\u3058\u308B' : '\u25BC To Do\u3092\u958B\u304F';
-        }
-
-        function updateProgress(phase) {
-            const items = document.querySelectorAll('.todo-item[data-phase="' + phase + '"]');
-            const total = items.length;
-            if (total === 0) return;
-            let checked = 0;
-            items.forEach(function(item) { if (item.classList.contains('checked')) checked++; });
-            const pct = Math.round((checked / total) * 100);
-            const progressEl = document.querySelector('.phase-progress[data-phase="' + phase + '"]');
-            if (progressEl) {
-                progressEl.querySelector('.progress-percent').textContent = pct + '%';
-                progressEl.querySelector('.progress-fill').style.width = pct + '%';
-            }
-        }
-
-        // ページ読み込み時にlocalStorageからチェック状態を復元
-        (function restoreChecks() {
-            const state = getCheckedState();
-            document.querySelectorAll('.todo-item').forEach(function(item) {
-                const key = 'p' + item.dataset.phase + '_' + item.dataset.idx;
-                if (state[key]) {
-                    item.classList.add('checked');
-                }
-            });
-            for (let i = 1; i <= 5; i++) updateProgress(i);
-        })();
     </script>
 </body>
 </html>
